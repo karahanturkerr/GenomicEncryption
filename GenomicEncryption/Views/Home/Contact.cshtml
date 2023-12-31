@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genomic Encryption - @ViewBag.Title</title>
+    @Styles.Render("~/CSS/contact.css")
+
+
+    <!-- Style.css dosyanızı ekliyoruz -->
+    
+</head>
+
+<body>
+
+    <header>
+       
+    </header>
+    
+    <main>
+        <div class="containerr">
+            <div class="left-panel">
+                <img src="~/IMAGE/message.png">
+            </div>
+
+            <div class="right-panel">
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Adınız:</label>
+                    <input type="text" id="name" name="name">
+
+                    <label  for="email">E-posta Adresiniz:</label>
+                    <input type="text" id="email" name="email">
+
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" name="message"></textarea>
+
+                    <input class="submit-button" type="submit" value="Gönder">
+                </form>
+            </div>
+        </div>
+    </main>
+    
+</body>
+
+</html>

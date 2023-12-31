@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Karakter seti ve görüntüleme özellikleri tanımlanıyor -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Sayfa başlığı, @ViewBag.Title ile dinamik olarak belirleniyor -->
+    <title>@ViewBag.Title - Genomic Encryption Uygulaması</title>
+    
+    <!-- CSS dosyalarını sayfaya eklemek için kullanılıyor -->
+    @Styles.Render("~/Content/css")
+    
+    <!-- Modernizr script'i sayfaya ekleniyor -->
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- Bootstrap gezinme çubuğu -->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <!-- Uygulama adı ve ana sayfaya yönlendiren bağlantı -->
+            @Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            
+            <!-- Küçük ekranlarda gezinme çubuğunu açıp kapatmayı sağlayan düğme -->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Gezintiyi aç/kapat" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Gezinme çubuğu öğeleri -->
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <!-- Ana sayfa, Hakkında, İletişim ve Proje sayfalarına yönlendiren bağlantılar -->
+                    <li>@Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Hakkımızda", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("İletişim", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Proje", "Project", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+                <!-- Kullanıcı girişi (login) bağlantısı -->
+                <ul class="navbar-nav">
+                    <li>@Html.ActionLink("Giriş", "Login", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Sayfa içeriğini sınırlayan bir konteyner -->
+    <div class="container body-content">
+        <!-- Sayfa içeriğini temsil eden bölüm -->
+        @RenderBody()
+        
+        <!-- Yatay bir çizgi ile ayrılan footer bölümü -->
+        <hr />
+        
+        <!-- Sayfa altında yer alan bilgi çubuğu -->
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Genomic Encryption Projesi</p>
+        </footer>
+    </div>
+    
+    <!-- jQuery ve Bootstrap gibi harici JavaScript kütüphanelerini sayfaya ekler -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+    <!-- Sayfanın herhangi bir yerinde özelleştirilmiş script bölümleri eklemek için kullanılır -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

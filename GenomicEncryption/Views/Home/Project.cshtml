@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    @Styles.Render("~/CSS/style.css")
+
+    @Styles.Render("~/CSS/project.css")
+
+
+</head>
+
+<body>
+    <header>
+        <h1>Genetik Kod Şifreleme ve Çözme</h1>
+        
+    </header>
+    <div class="containerr">
+        <button class="accordion">Proje Nedir</button>
+        <div class="panel">
+            <p>Proje açıklaması burada yer alabilir.</p>
+        </div>
+
+        <button class="accordion">Proje Amacı</button>
+        <div class="panel">
+            <p>Proje Amacı burada Açıklanmalı.</p>
+        </div>
+
+        <button class="accordion">Proje Özellikleri</button>
+        <div class="panel">
+            <p>Hangi teknolojilerin kullanıldığı.</p>
+            <p>Hangi özelliklere sahip olduğu.</p>
+            <p>Kullanılan programlama dilleri veya çerçeveler.</p>
+        </div>
+
+        <button class="accordion">Proje Üyeleri</button>
+        <div class="panel">
+            <p>Proje üzerinde çalışan ekip üyeleri veya katkıda bulunanlar.</p>
+            <p>Geliştirici, tasarımcı, tester gibi rollerin belirtilmesi.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Genetik Kod Projesi</p>
+    </footer>
+</body>
+
+</html>
+

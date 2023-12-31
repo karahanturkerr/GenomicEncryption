@@ -1,0 +1,43 @@
+.containerr {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion {
+    width: 100%;
+    padding: 15px;
+    
+    color: white;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.panel {
+    display: none;
+    padding: 15px;
+    background-color: #f1f1f1;
+    transition: max-height 0.9s ease-out;
+    overflow: hidden;
+    max-height: 0;
+}
+
+.containerr:hover .panel {
+    max-height: 500px;
+}
+
+.accordion:hover + .panel {
+    display: block;
+}
+
+.accordion:hover {
+    background-color: #444;
+}
+ul li:hover {
+    transition: 0.7s;
+}

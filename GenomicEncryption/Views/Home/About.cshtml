@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    @Styles.Render("~/CSS/style.css")
+    @Styles.Render("~/CSS/about.css")
+
+
+</head>
+
+
+
+<body>
+    <header>
+        <h1>Genetik Kod Şifreleme ve Çözme</h1>
+        
+    </header>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="~/IMAGE/team.jpg" alt="Team">
+            <div class="card-content">
+                <a href="team.html">Team</a>
+                <div class="info">
+                    <p>Kuruluş ve Ekip Bilgileri</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="~/IMAGE/school.gif" alt="School">
+            <div class="card-content">
+                <a href="school.html">School</a>
+                <div class="info">
+                    <p>Okul Bilgileri ve Hizmetleri</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="~/IMAGE/teacher.jpg" alt="Teacher">
+            <div class="card-content">
+                <a href="teacher.html">Teacher</a>
+                <div class="info">
+                    <p>Öğretmen Bilgileri ve Eğitim Yaklaşımları</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Genetik Kod Projesi</p>
+    </footer>
+      
+    
+</body>
+
+</html>

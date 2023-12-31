@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Team";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<style>
+    .team-member {
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+
+    img {
+        max-width: 100px;
+        border-radius: 65%;
+        margin-right: 30px;
+    }
+
+    .member-info {
+        flex: 1;
+    }
+</style>
+<body>
+    <section class="team-member">
+        <img src="/IMAGE/1414.jpg" alt="İbrahim Yegen">
+        <div class="member-info">
+            <h2>İbrahim Yegen</h2>
+            <p>Full Stack Developer</p>
+            <p>Yaptığı Çalışmalar Yazılacak</p>
+            <a href="https://www.linkedin.com/in/ibrahimyegen/" target="_blank">LinkedIn Profili</a>
+
+        </div>
+    </section>
+    <section class="team-member">
+        <img src="member2.jpg" alt="Ekip Üyesi 2">
+        <div class="member-info">
+            <h2>Karahan Türker</h2>
+            <p>UI-UX Designer</p>
+            <p>Yaptığı Çalışmalar Yazılacak</p>
+            <a href="https://www.linkedin.com/in/karahantürker/" target="_blank">LinkedIn Profili</a>
+        </div>
+    </section>
+
+    <section class="team-member">
+        <img src="member3.jpg" alt="Ekip Üyesi 3">
+        <div class="member-info">
+            <h2>Ayetullah Bakan</h2>
+            <p>.Net Developer</p>
+            <p>Yaptığı Çalışmalar Yazılacak.</p>
+            <a href="https://www.linkedin.com/in/ayetullahbakan/" target="_blank">LinkedIn Profili</a>
+        </div>
+    </section>
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "BurrowsWheelerSifreleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<h2>Burrows - Wheeler Sifreleme Algoritması</h2>
+<form class=" form-group" method="post">
+    <div>
+        <label>Şifrelenecek Kod</label>
+        <input type="text" class="form-control" name="KATEGORIAD" />
+    </div>
+
+    @*<div>
+            <label>Kategori Adı</label>
+            @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @style = "color : blue" })
+        </div>*@
+    <div style="margin-top:15px">
+        <button class="btn btn-info"> Şifrele</button>
+    </div>
+</form>
+<br />
+<a href="/Home/Index/" class="btn btn-danger">GERİ</a>
+

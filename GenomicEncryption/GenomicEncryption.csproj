@@ -203,6 +203,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Project.cshtml" />
     <Content Include="Views\Home\Team.cshtml" />
+    <Content Include="Views\Home\AesSifreleme.cshtml" />
+    <Content Include="Views\Home\BurrowsWheelerSifreleme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

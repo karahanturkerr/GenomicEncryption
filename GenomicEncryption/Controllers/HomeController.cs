@@ -40,17 +40,48 @@ namespace GenomicEncryption.Controllers
 
             return View();
         }
+        [HttpGet]//sadece ilgili ekranı görmek istediğimde getle yapıyorum
         public ActionResult AesSifreleme()
         {
-            ViewBag.Message = "Your Aes Sifreleme page.";
-
             return View();
+
         }
+        [HttpPost]//Kullanıcıdan veri alırken post attribute kullanırız
+        public ActionResult AesSifreleme(GenomicCodes p1)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("AesSifreleme");
+            }
+            db.GenomicCodes.Add(p1);
+            db.SaveChanges();
+            return RedirectToAction("AesSifreleme");
+        }
+
+        [HttpGet]//sadece ilgili ekranı görmek istediğimde getle yapıyorum
         public ActionResult BurrowsWheelerSifreleme()
         {
-            ViewBag.Message = "Your Aes Sifreleme page.";
-
             return View();
+
         }
+        [HttpPost]//Kullanıcıdan veri alırken post attribute kullanırız
+        public ActionResult BurrowsWheelerSifreleme(GenomicCodes p1)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("AesSifreleme");
+            }
+            db.GenomicCodes.Add(p1);
+            db.SaveChanges();
+            return RedirectToAction("AesSifreleme");
+        }
+        
+        public ActionResult VeriTabaniGoruntule()
+        {
+            var degerler = db.GenomicCodes.ToList();
+            return View(degerler);
+        }
+
+        
     }
 }

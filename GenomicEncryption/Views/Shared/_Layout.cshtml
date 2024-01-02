@@ -1,17 +1,22 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <!-- Karakter seti ve görüntüleme özellikleri tanımlanıyor -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <!-- Sayfa başlığı, @ViewBag.Title ile dinamik olarak belirleniyor -->
     <title>@ViewBag.Title - Genomic Encryption Uygulaması</title>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <!-- CSS dosyalarını sayfaya eklemek için kullanılıyor -->
     @Styles.Render("~/Content/css")
-    
+
     <!-- Modernizr script'i sayfaya ekleniyor -->
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -21,13 +26,13 @@
         <div class="container">
             <!-- Uygulama adı ve ana sayfaya yönlendiren bağlantı -->
             @Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            
+
             <!-- Küçük ekranlarda gezinme çubuğunu açıp kapatmayı sağlayan düğme -->
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Gezintiyi aç/kapat" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <!-- Gezinme çubuğu öğeleri -->
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
@@ -44,25 +49,25 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Sayfa içeriğini sınırlayan bir konteyner -->
     <div class="container body-content">
         <!-- Sayfa içeriğini temsil eden bölüm -->
         @RenderBody()
-        
+
         <!-- Yatay bir çizgi ile ayrılan footer bölümü -->
         <hr />
-        
+
         <!-- Sayfa altında yer alan bilgi çubuğu -->
         <footer>
             <p>&copy; @DateTime.Now.Year - Genomic Encryption Projesi</p>
         </footer>
     </div>
-    
+
     <!-- jQuery ve Bootstrap gibi harici JavaScript kütüphanelerini sayfaya ekler -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    
+
     <!-- Sayfanın herhangi bir yerinde özelleştirilmiş script bölümleri eklemek için kullanılır -->
     @RenderSection("scripts", required: false)
 </body>

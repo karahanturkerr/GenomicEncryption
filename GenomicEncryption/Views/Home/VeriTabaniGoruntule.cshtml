@@ -1,0 +1,25 @@
+﻿@using GenomicEncryption.Models.Classes
+@model List<GenomicCodes>
+@{
+    ViewBag.Title = "VeriTabaniGoruntule";
+}
+
+<h2>VeriTabaniGoruntule</h2>
+
+<table class="table table-bordered ">
+    <tr>
+        <th>ID</th>
+        <th>Genomik Kodlar</th>
+
+    </tr>
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <th>@ktgr.ID</th>
+                <td>@ktgr.DEGER</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

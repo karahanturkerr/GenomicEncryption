@@ -6,17 +6,7 @@
 }
 
 <h2>Aes Sifreleme Algoritması</h2>
-<!--<form class=" form-group" method="post">
-    <div>
-        <label>Şifrelenecek Kod</label>
 
-@*<input type="text" class="form-control" name="SifrelenecekKodInput" />*@
-<!--</div>
-
-    <div style="margin-top:15px">
-        <button class="btn btn-info"> Ekle</button>
-    </div>
-</form>-->
 
 <div class="container">
     <div class="card">
@@ -94,7 +84,6 @@
 
 
         function sifrele() {
-            //var SecilenKodlar = [];
 
             var val = $('#genomikSelect option:selected').val();
             var mdl = {
@@ -107,9 +96,7 @@
                 element.value = res.EncryptedText;
                 element.title = res.EncryptedText;
             })
-            //$('#genomikSelect :selected').each(function (i, selected) {
-            //    SecilenKodlar[i] = $(selected).text();
-            //});
+            
         }
         function coz() {
 

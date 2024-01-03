@@ -11,6 +11,7 @@ namespace GenomicEncryption.Models.Classes
     {
         [Key]
         public int ID { get; set; }
+        public string AD { get; set; }
         public string DEGER { get; set; }
     }
 }

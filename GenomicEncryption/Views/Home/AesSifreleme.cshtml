@@ -1,24 +1,138 @@
-﻿@model GenomicEncryption.Models.Classes.GenomicCodes
+﻿@using GenomicEncryption.Models.Classes
+@model List<GenomicCodes>
 @{
     ViewBag.Title = "AesSifreleme";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Aes Sifreleme Algoritması</h2>
-<form class=" form-group" method="post">
+<!--<form class=" form-group" method="post">
     <div>
         <label>Şifrelenecek Kod</label>
-        @Html.TextBoxFor(m => m.DEGER, new { @class = "form-control" })
-        @*<input type="text" class="form-control" name="SifrelenecekKodInput" />*@
-    </div>
+
+@*<input type="text" class="form-control" name="SifrelenecekKodInput" />*@
+<!--</div>
 
     <div style="margin-top:15px">
         <button class="btn btn-info"> Ekle</button>
     </div>
-</form>
+</form>-->
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <label for="genomikSelect">Şifrelemek istediğiniz Kodun adını seçiniz</label>
+                    <select class="form-control" name="genomik" id="genomikSelect">
+                        @foreach (var ktgr in Model)
+                        {
+                            <option value="@ktgr.DEGER">@ktgr.AD - (@ktgr.DEGER)</option>
+
+                        }
+
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 d-flex justify-content-end flex-column">
+                    <button type="button" class="btn btn-primary" onclick="sifrele()">
+                        Şifrele
+                    </button>
+                </div>
+                <div class="col-8">
+                    <label for="encrypted">Şifrelenmiş Veri :</label>
+                    <input class="form-control" id="txtEncrypted" type="text" name="encrypted" disabled />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-8">
+                    <label for="cozulen">Çözmek istediğiniz Kodu giriniz</label>
+                    <input class="form-control" id="txtCozulen" type="text" name="cozulen" />
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 d-flex justify-content-end flex-column">
+                    <button type="button" class="btn btn-primary" onclick="coz()">
+                        Çöz
+                    </button>
+                </div>
+                <div class="col">
+                    <label for="solved">Çözülmüş Veri :</label>
+                    <input class="form-control" id="txtSolved" type="text" name="solved" disabled />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
 <br />
 <a href="/Home/Index/" class="btn btn-danger">GERİ</a>
 <a href="/Home/VeriTabaniGoruntule" class="btn btn-danger">Genetik Kodları Görüntüle</a>
+
+
+<button class="btn btn-primary" onclick="goster()">Gösterrrr</button>
+<div id="result">
+
+
+</div>
+
+@section scripts{
+    <script>
+
+
+
+        function sifrele() {
+            //var SecilenKodlar = [];
+
+            var val = $('#genomikSelect option:selected').val();
+            var mdl = {
+                PlainText: val,
+                EncryptedText: '',
+            };
+            var url = `/Encryption/IndexEncrypt/`;
+            $.post(url,mdl, function (res) {
+                var element = document.getElementById('txtEncrypted');
+                element.value = res.EncryptedText;
+                element.title = res.EncryptedText;
+            })
+            //$('#genomikSelect :selected').each(function (i, selected) {
+            //    SecilenKodlar[i] = $(selected).text();
+            //});
+        }
+        function coz() {
+
+            var val = document.getElementById('txtCozulen').value;
+            var mdl = {
+                PlainText: '',
+                EncryptedText: val,
+            };
+            var url = `/Encryption/IndexDecrypt/`;
+            $.post(url, mdl, function (res) {
+                console.log(res);
+                var element = document.getElementById('txtSolved');
+                element.value = res.PlainText;
+                element.title = res.PlainText;
+            })
+            //$('#genomikSelect :selected').each(function (i, selected) {
+            //    SecilenKodlar[i] = $(selected).text();
+            //});
+        }
+    </script>
+
+
+}
 
 
 

@@ -40,41 +40,20 @@ namespace GenomicEncryption.Controllers
 
             return View();
         }
-        [HttpGet]//sadece ilgili ekranı görmek istediğimde getle yapıyorum
+       
         public ActionResult AesSifreleme()
         {
-            return View();
-
-        }
-        [HttpPost]//Kullanıcıdan veri alırken post attribute kullanırız
-        public ActionResult AesSifreleme(GenomicCodes p1)
-        {
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("AesSifreleme");
-            }
-            db.GenomicCodes.Add(p1);
-            db.SaveChanges();
-            return RedirectToAction("AesSifreleme");
+            var degerler = db.GenomicCodes.ToList();
+            return View(degerler);
         }
 
-        [HttpGet]//sadece ilgili ekranı görmek istediğimde getle yapıyorum
         public ActionResult BurrowsWheelerSifreleme()
         {
-            return View();
+            var degerler = db.GenomicCodes.ToList();
+            return View(degerler);
 
         }
-        [HttpPost]//Kullanıcıdan veri alırken post attribute kullanırız
-        public ActionResult BurrowsWheelerSifreleme(GenomicCodes p1)
-        {
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("AesSifreleme");
-            }
-            db.GenomicCodes.Add(p1);
-            db.SaveChanges();
-            return RedirectToAction("AesSifreleme");
-        }
+        
         
         public ActionResult VeriTabaniGoruntule()
         {
@@ -82,6 +61,26 @@ namespace GenomicEncryption.Controllers
             return View(degerler);
         }
 
-        
+
+        [HttpGet]//sadece ilgili ekranı görmek istediğimde getle yapıyorum
+        public ActionResult KodEkle()
+        {
+            return View();
+
+        }
+
+        [HttpPost]//Kullanıcıdan veri alırken post attribute kullanırız
+        public ActionResult KodEkle(GenomicCodes p1)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("KodEkle");
+            }
+            db.GenomicCodes.Add(p1);
+            db.SaveChanges();
+            return RedirectToAction("KodEkle");
+        }
+
+
     }
 }

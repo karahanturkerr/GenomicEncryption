@@ -1,0 +1,34 @@
+﻿@model GenomicEncryption.Models.Classes.GenomicCodes
+
+@{
+    ViewBag.Title = "KodEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>KodEkleme</h2>
+<form class=" form-group" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label for="deger">Genomik Kod</label>
+                @Html.TextBoxFor(m => m.DEGER, new { @class = "form-control", @name = "deger",@required = true })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="name">Genomik Kodları Temsil Eden Ad</label>
+                @Html.TextBoxFor(m => m.AD, new { @class = "form-control", @name = "name", @required = true })
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3">
+                <button class="btn btn-primary w-50"> Ekle</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+<br />
+<a href="/Home/Index/" class="btn btn-danger">GERİ</a>
+<a href="/Home/VeriTabaniGoruntule" class="btn btn-danger">Genetik Kodları Görüntüle</a>

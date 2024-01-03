@@ -119,6 +119,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Class1.cs" />
+    <Compile Include="Controllers\EncryptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -126,6 +128,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\CONTEXT.cs" />
     <Compile Include="Models\Classes\GenomicCodes.cs" />
+    <Compile Include="Models\ViewModels\EncryptViewMoel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,10 +207,11 @@
     <Content Include="Views\Home\AesSifreleme.cshtml" />
     <Content Include="Views\Home\BurrowsWheelerSifreleme.cshtml" />
     <Content Include="Views\Home\VeriTabaniGoruntule.cshtml" />
+    <Content Include="Views\Home\KodEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="pictures\" />
+    <Folder Include="Views\Encryption\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

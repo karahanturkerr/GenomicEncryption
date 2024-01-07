@@ -119,7 +119,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Class1.cs" />
+    <Compile Include="Controllers\AesEncryption.cs" />
+    <Compile Include="Controllers\BurrowsWheelerEncyryption.cs" />
     <Compile Include="Controllers\EncryptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

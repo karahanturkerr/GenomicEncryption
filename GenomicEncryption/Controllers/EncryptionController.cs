@@ -24,6 +24,21 @@ namespace GenomicEncryption.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult IndexEncryptBurrows(EncryptViewMoel model)
+        {
+            BurrowsWheelerEncyryption brw = new BurrowsWheelerEncyryption();
+            var result = brw.Encrypt(model);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult IndexDecryptBurrows(EncryptViewMoel model)
+        {
+            BurrowsWheelerEncyryption brw = new BurrowsWheelerEncyryption();
+            var result = brw.Decrypt(model);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
 
 
     }

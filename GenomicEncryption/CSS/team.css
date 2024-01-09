@@ -1,0 +1,18 @@
+﻿.team-member {
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+img {
+    max-width: 100px;
+    border-radius: 65%;
+    margin-right: 30px;
+}
+
+.member-info {
+    flex: 1;
+}

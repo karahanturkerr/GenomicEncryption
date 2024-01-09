@@ -1,0 +1,29 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0px;
+}
+
+div {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #004080;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+img {
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 10px;
+}

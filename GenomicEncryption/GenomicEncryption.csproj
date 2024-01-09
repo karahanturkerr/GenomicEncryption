@@ -123,6 +123,8 @@
     <Compile Include="Controllers\BurrowsWheelerEncyryption.cs" />
     <Compile Include="Controllers\EncryptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Content Include="CSS\school.css" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,9 +160,12 @@
     <Content Include="CSS\style.css" />
     <Content Include="CSS\style2.css" />
     <Content Include="CSS\style3.css" />
-    <Content Include="IMAGE\1414.jpg" />
+    <Content Include="CSS\teacher.css" />
+    <Content Include="CSS\team.css" />
+    <Content Include="IMAGE\ibrahim.jpg" />
     <Content Include="IMAGE\27230.jpg" />
     <Content Include="IMAGE\gif.gif" />
+    <Content Include="IMAGE\karahan.jpg" />
     <Content Include="IMAGE\login.jpg" />
     <Content Include="IMAGE\message.png" />
     <Content Include="IMAGE\muhendislik_fakultesi.jpg" />
@@ -209,10 +214,14 @@
     <Content Include="Views\Home\BurrowsWheelerSifreleme.cshtml" />
     <Content Include="Views\Home\VeriTabaniGoruntule.cshtml" />
     <Content Include="Views\Home\KodEkle.cshtml" />
+    <Content Include="Views\About\Team.cshtml" />
+    <Content Include="Views\About\School.cshtml" />
+    <Content Include="Views\About\Teacher.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Encryption\" />
+    <Folder Include="Views\Project\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

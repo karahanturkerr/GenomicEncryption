@@ -1,0 +1,50 @@
+﻿@model GenomicEncryption.Models.Classes.Users
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- head kısmı -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @Styles.Render("~/CSS/index.css")
+    @Styles.Render("~/CSS/style3.css")
+</head>
+<body>
+    <main>
+        <div class="container">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                <div class="card">
+                    <h1>Giriş</h1>
+                    <div class="label-float">
+                        @Html.TextBoxFor(m => m.Username, new { @id = "user", @required = "required" })
+                        <label for="user">Kullanıcı Adı</label>
+                    </div>
+                    <div class="label-float">
+                        @Html.PasswordFor(m => m.Password, new { @id = "password", @required = "required" })
+                        <label for="password">Şifre</label>
+                    </div>
+
+                    <div class="justify">
+                        <button type="submit" class="btn btn-primary">Giriş</button>
+                    </div>
+                    <div class="sep">
+                        <p>
+                            Hesabınız yok mu?
+                            <a href="/User/Register">Kayıt Ol</a>
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</body>
+</html>

@@ -18,55 +18,40 @@ namespace GenomicEncryption.Controllers
             public int Index;
             public string Suffix;
         }
-        
+
         // Bir metni Barrows Willer algoritmasıyla şifreleyen ve şifreli halini döndüren metot
-        public string BurrowsWheelerEncryption(string inputText)
+        public EncryptViewMoel Encrypt(EncryptViewMoel model)
         {
-            // '$' karakterini metnin sonuna ekleyerek devam et
-            inputText += "$";
-
-            int lenText = inputText.Length;
-
-            // Array of structures to store rotations and their indexes
-            Rotation[] suff = new Rotation[lenText];
-
-            // Structure is needed to maintain old indexes of rotations
-            // after sorting them
-            for (int i = 0; i < lenText; i++)
+            // Metnin tüm döngüsel kaydırmalarını oluştur
+            int n = model.PlainText.Length;
+            string[] rotations = new string[n];
+            for (int i = 0; i < n; i++)
             {
-                suff[i].Index = i;
-                suff[i].Suffix = inputText.Substring(i);
+                rotations[i] = model.PlainText.Substring(i) + model.PlainText.Substring(0, i);
             }
 
-            // Sorts rotations using comparison function
-            Array.Sort(suff, (x, y) => string.Compare(x.Suffix, y.Suffix));
+            // Döngüsel kaydırmaları sözlük sırasına göre sırala
+            Array.Sort(rotations);
 
-            // Stores the indexes of sorted rotations
-            int[] suffixArr = new int[lenText];
-            for (int i = 0; i < lenText; i++)
+            // Son sütunu döndür
+            string bwt = "";
+            for (int i = 0; i < n; i++)
             {
-                suffixArr[i] = suff[i].Index;
+                bwt += rotations[i][n - 1];
             }
 
-            // Iterates over the suffix array to find the last char of each cyclic rotation
-            char[] bwtArr = new char[lenText];
-            for (int i = 0; i < lenText; i++)
-            {
-                // Computes the last char which is given by inputText[(suffixArr[i] + lenText - 1) % lenText]
-                int j = (suffixArr[i] + lenText - 1) % lenText;
-                bwtArr[i] = inputText[j];
-            }
-
-            // Returns the computed Burrows-Wheeler Transform
-            return new string(bwtArr);
+            // Sonuçları model içine atayarak döndür
+            model.EncryptedText = bwt;
+            return model;
         }
 
+
         // Bir metnin Barrows Willer algoritmasıyla şifresini çözen ve orijinal metni döndüren metot
-        static string IBWT(string bwt)
+        public EncryptViewMoel Decrypt(EncryptViewMoel model)
         {
             // Son sütunu al
-            int n = bwt.Length;
-            char[] last = bwt.ToCharArray();
+            int n = model.EncryptedText.Length;
+            char[] last = model.EncryptedText.ToCharArray();
 
             // İlk sütunu oluştur
             char[] first = last.OrderBy(c => c).ToArray();
@@ -97,8 +82,11 @@ namespace GenomicEncryption.Controllers
                 index = next[index];
             }
 
-            return text;
+            // Sonucu model içine atayarak döndür
+            model.PlainText = text;
+            return model;
         }
+
 
 
     }

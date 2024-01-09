@@ -15,5 +15,6 @@ namespace GenomicEncryption.Models.Classes
             : base("name=CONTEXT") { }
         
         public DbSet<GenomicCodes> GenomicCodes { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }

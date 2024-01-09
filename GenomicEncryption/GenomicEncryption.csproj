@@ -125,14 +125,20 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Content Include="CSS\school.css" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401091619218_migrationUsers.cs" />
+    <Compile Include="Migrations\202401091619218_migrationUsers.designer.cs">
+      <DependentUpon>202401091619218_migrationUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\CONTEXT.cs" />
     <Compile Include="Models\Classes\GenomicCodes.cs" />
-    <Compile Include="Models\Classes\User.cs" />
+    <Compile Include="Models\Classes\Users.cs" />
     <Compile Include="Models\ViewModels\EncryptViewMoel.cs" />
+    <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +224,8 @@
     <Content Include="Views\About\Team.cshtml" />
     <Content Include="Views\About\School.cshtml" />
     <Content Include="Views\About\Teacher.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +258,11 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202401091619218_migrationUsers.resx">
+      <DependentUpon>202401091619218_migrationUsers.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

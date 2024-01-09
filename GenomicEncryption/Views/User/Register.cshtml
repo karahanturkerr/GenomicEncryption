@@ -1,0 +1,51 @@
+﻿@model GenomicEncryption.Models.Classes.Users
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @Styles.Render("~/CSS/index.css")
+    @Styles.Render("~/CSS/style3.css")
+
+    <title>Register</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <form action="" method="post">
+                <div class="card">
+                    <h1>Kayıt</h1>
+                    <div class="label-float">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @name = "user", @required = true })
+                        <label for="user">Kullanıcı Adı</label>
+                    </div>
+                    <div class="label-float">
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @name = "password", @required = true })
+                        <label for="password">Şifre</label>
+                    </div>
+                    <div class="label-float">
+                        @Html.TextBoxFor(m => m.PasswordConfirm, new { @class = "form-control", @name = "password2", @required = true })
+                        <label for="password2">Şifre Tekrar</label>
+                    </div>
+
+                    <div class="justify">
+                        <button class="btn btn-primary">Kaydı Tamamla</button>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
+
+

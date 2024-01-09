@@ -131,6 +131,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\CONTEXT.cs" />
     <Compile Include="Models\Classes\GenomicCodes.cs" />
+    <Compile Include="Models\Classes\Message.cs" />
+    <Compile Include="Models\Classes\UserMessage.cs" />
     <Compile Include="Models\ViewModels\EncryptViewMoel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

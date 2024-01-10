@@ -1,0 +1,59 @@
+﻿body {
+    background-image: url("/IMAGE/GenomikMavi.jpg"); /* Arka plan resmi dosya yolunu buraya ekleyin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Eğer sayfa boyutu kadar kaplamasını istiyorsanız */
+    margin: 0; /* Body kenar boşluğunu kapatmak için */
+    
+}
+
+.card h1 {
+    color: #542269;
+}
+
+.label-float label {
+    color: #000
+}
+
+.sep a {
+    color: #871a71;
+}
+
+.sep {
+    border-top: 2px solid #542269;
+}
+
+.card .label-float input {
+    border-bottom: 2px solid #542269;
+}
+
+.card .label-float input {
+    border-bottom: 2px solid #542269;
+}
+
+    .card .label-float input:focus {
+        border-color: #871a71;
+    }
+
+input[type="submit"] {
+    color: #542269;
+    border: 1px solid #542269;
+}
+
+    input[type="submit"]:hover {
+        background-color: #542269;
+    }
+
+
+.sep {
+    width: 60%;
+    margin: 10% auto;
+    padding-top: 10%;
+    text-align: center;
+}
+
+    .sep a {
+        font-weight: bold;
+        text-decoration: double;
+    }

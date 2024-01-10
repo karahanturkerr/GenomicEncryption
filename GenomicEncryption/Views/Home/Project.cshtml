@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Project";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,49 +6,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @Styles.Render("~/CSS/style.css")
-
-    @Styles.Render("~/CSS/project.css")
-
-
+    <title>Genomic Encryption - @ViewBag.Title</title>
+    @Styles.Render("~/CSS/project2.css")
 </head>
+    <style>
+        .card {
+            transition: transform 0.3s ease;
+        }
 
-<body>
-    <header>
-        <h1>Genetik Kod Şifreleme ve Çözme</h1>
-        
-    </header>
-    <div class="containerr">
-        <button class="accordion">Proje Nedir</button>
-        <div class="panel">
-            <p>Proje açıklaması burada yer alabilir.</p>
+            .card:hover {
+                transform: scale(1.5);
+            }
+    </style>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sol Kart -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Proje Nedir
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Sol kart içeriği burada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Kart -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Proje Amacı
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Sağ kart içeriği burada.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <button class="accordion">Proje Amacı</button>
-        <div class="panel">
-            <p>Proje Amacı burada Açıklanmalı.</p>
-        </div>
+        <div class="row">
+            <!-- Sol Kart -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Proje Özellikleri
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Sol kart içeriği burada.</p>
+                    </div>
+                </div>
+            </div>
 
-        <button class="accordion">Proje Özellikleri</button>
-        <div class="panel">
-            <p>Hangi teknolojilerin kullanıldığı.</p>
-            <p>Hangi özelliklere sahip olduğu.</p>
-            <p>Kullanılan programlama dilleri veya çerçeveler.</p>
-        </div>
-
-        <button class="accordion">Proje Üyeleri</button>
-        <div class="panel">
-            <p>Proje üzerinde çalışan ekip üyeleri veya katkıda bulunanlar.</p>
-            <p>Geliştirici, tasarımcı, tester gibi rollerin belirtilmesi.</p>
+            <!-- Sağ Kart -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Proje Üyeleri
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Sağ kart içeriği burada.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2023 Genetik Kod Projesi</p>
-    </footer>
-</body>
-
-</html>
-
+    
+    </html>

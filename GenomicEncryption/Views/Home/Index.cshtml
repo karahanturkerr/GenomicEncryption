@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewBag.Title = "AesSifreleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,22 +15,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
     <!-- Custom CSS -->
     @Styles.Render("~/CSS/style.css")
     @Styles.Render("~/CSS/main.css")
 
-
     <style>
         body {
             background-color: #f8f9fa;
+            margin-bottom: 60px; /* Sayfanın altındaki boşluğu artırmak için */
         }
 
         header {
-            background-color: black;
+            background-color: transparent;
             color: white;
             padding: 10px;
             text-align: center;
         }
+
+            header h1 {
+                font-family: 'Century Schoolbook', Arial;
+                font-size: 70px; /* Yazı boyutunu artırmak için */
+                margin-bottom: 0; /* Yazı altındaki boşluğu kapatmak için */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
 
         .main-image img {
             max-width: 100%;
@@ -40,7 +55,9 @@
         .btn-primary {
             background-color: #007bff;
             color: white;
-            margin: 5px;
+            margin: 10px; /* Butonların arasındaki boşluğu artırmak için */
+            padding: 15px 30px; /* Buton boyutlarını artırmak için */
+            font-size: 18px; /* Buton yazı boyutunu artırmak için */
         }
 
         footer {
@@ -57,12 +74,7 @@
 
 <body>
     <header>
-        <h1>Genomik Şifreleme</h1>
-        <!-- Eğer bir resim kullanmak isterseniz:
-        <div class="main-image">
-            <img src="~/IMAGE/gif.gif" alt="Genomik Veri Animasyonu">
-        </div>
-        -->
+        <h1>UGenEncrypt</h1>
     </header>
 
     <div class="butonlar">
@@ -75,10 +87,9 @@
         <a href="@Url.Action("KodEkle")" class="btn btn-primary">Kod Ekle</a>
     </div>
 
-  
-
-    <!-- Bootstrap JS ve jQuery (isteğe bağlı, kullanmıyorsanız silin) -->
-    
+    <footer>
+        <!-- Sayfanın altındaki içerik -->
+    </footer>
 </body>
 
 </html>

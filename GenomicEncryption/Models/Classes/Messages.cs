@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GenomicEncryption.Models.Classes
 {
-    public class Message
+    public class Messages
     {
         [Key]
         public int Id { get; set; }

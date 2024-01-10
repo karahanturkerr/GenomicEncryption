@@ -1,3 +1,12 @@
+﻿body {
+    background-image: url("/IMAGE/Genomik4.jpg"); /* Arka plan resmi dosya yolunu buraya ekleyin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Eğer sayfa boyutu kadar kaplamasını istiyorsanız */
+    margin: 0; /* Body kenar boşluğunu kapatmak için */
+}
+
 .containerr {
     display: flex;
     max-width: 800px;
@@ -14,15 +23,15 @@
     justify-content: center;
 }
 
-.left-panel img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
+    .left-panel img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
 
-.left-panel:hover img {
-    transform: scale(1.1);
-}
+    .left-panel:hover img {
+        transform: scale(1.1);
+    }
 
 .right-panel {
     flex: 2;
@@ -35,6 +44,7 @@ h2 {
 }
 
 form {
+
     display: flex;
     flex-direction: column;
 }
@@ -46,9 +56,9 @@ form {
     transition: font-size 0.3s ease;
 }
 
-.form-label:hover {
-    font-size: 12px;
-}
+    .form-label:hover {
+        font-size: 12px;
+    }
 
 input,
 textarea {
@@ -64,10 +74,10 @@ textarea {
     height: 120px;
 }
 
-input:focus,
-textarea:focus {
-    border-radius: 8px;
-}
+    input:focus,
+    textarea:focus {
+        border-radius: 8px;
+    }
 
 .submit-button {
     background-color: #4CAF50;
@@ -78,7 +88,6 @@ textarea:focus {
     cursor: pointer;
 }
 
-.submit-button:hover {
-    background-color: #45a049;
-}
-
+    .submit-button:hover {
+        background-color: #45a049;
+    }

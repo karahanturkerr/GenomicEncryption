@@ -12,7 +12,7 @@ namespace GenomicEncryption.Models.Classes
         public int Id { get; set; }
         public Users User { get; set; }
         public int UserId { get; set; }
-        public Message Message { get; set; }
+        public Messages Message { get; set; }
         public int MessageId { get; set; }
     }
 }

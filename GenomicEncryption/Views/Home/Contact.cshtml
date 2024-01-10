@@ -1,5 +1,8 @@
-﻿@{
+﻿@model GenomicEncryption.Models.Classes.Messages
+
+@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -8,43 +11,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genomic Encryption - @ViewBag.Title</title>
-    @Styles.Render("~/CSS/contact.css")
+    @Styles.Render("~/CSS/contact2.css")
 
 
-    <!-- Style.css dosyanızı ekliyoruz -->
-    
+
 </head>
 
 <body>
 
     <header>
-       
     </header>
-    
+
     <main>
         <div class="containerr">
             <div class="left-panel">
                 <img src="~/IMAGE/message.png">
             </div>
+                <div class="right-panel">
+                    <h2>Bizimle İletişim Kur</h2>
+                    <form action="" method="post">
+                        <label for="name">Adınız:</label>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @name = "name", @required = true })
 
-            <div class="right-panel">
-                <h2>Contact Us</h2>
-                <form>
-                    <label for="name">Adınız:</label>
-                    <input type="text" id="name" name="name">
+                        <label for="email">E-posta Adresiniz:</label>
+                        @Html.TextBoxFor(m => m.Eposta, new { @class = "form-control", @name = "email", @required = true })
 
-                    <label  for="email">E-posta Adresiniz:</label>
-                    <input type="text" id="email" name="email">
+                        <label for="message">Mesajınız:</label>
+                        @Html.TextBoxFor(m => m.Text, new { @class = "form-control", @name = "message", @required = true })
 
-                    <label for="message">Mesajınız:</label>
-                    <textarea id="message" name="message"></textarea>
+                        <button class="submit-button" type="submit"> Gönder</button>
 
-                    <input class="submit-button" type="submit" value="Gönder">
-                </form>
-            </div>
+
+                    </form>
+                </div>
         </div>
     </main>
-    
+
 </body>
 
 </html>

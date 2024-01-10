@@ -1,3 +1,13 @@
+﻿
+body {
+    background-image: url("/IMAGE/genomik3.jpg"); /* Arka plan resmi dosya yolunu buraya ekleyin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Eğer sayfa boyutu kadar kaplamasını istiyorsanız */
+    margin: 0; /* Body kenar boşluğunu kapatmak için */
+}
+
 .containerr {
     display: flex;
     flex-direction: column;
@@ -10,7 +20,6 @@
 .accordion {
     width: 100%;
     padding: 15px;
-    
     color: white;
     cursor: pointer;
     border: none;
@@ -38,6 +47,7 @@
 .accordion:hover {
     background-color: #444;
 }
+
 ul li:hover {
     transition: 0.7s;
 }

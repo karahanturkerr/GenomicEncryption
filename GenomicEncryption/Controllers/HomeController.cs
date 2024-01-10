@@ -15,31 +15,37 @@ namespace GenomicEncryption.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        
 
-            return View();
-        }
-
+        [HttpGet]//sadece ilgili ekranı görmek istediğimde getle yapıyorum
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
+
         }
+
+        [HttpPost]//Kullanıcıdan veri alırken post attribute kullanırız
+        public ActionResult Contact(Messages p1)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Project");
+            }
+            db.Messages.Add(p1);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
         public ActionResult Project()
         {
             ViewBag.Message = "Your project page.";
 
             return View();
         }
-        public ActionResult Team()
-        {
-            ViewBag.Message = "Your project page.";
-
-            return View();
-        }
+     
        
         public ActionResult AesSifreleme()
         {

@@ -41,10 +41,9 @@
         /* Footer bölümü için özel CSS */
         footer {
             text-align: center;
-            padding: 10px;
-            background-color: #343a40; /* Koyu gri arkaplan rengi */
+            padding: 0px;
             color: #ffffff; /* Beyaz renk */
-            margin-top: 20px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -87,9 +86,7 @@
         <hr />
 
         <!-- Sayfa altında yer alan bilgi çubuğu -->
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Genomic Encryption Projesi</p>
-        </footer>
+
     </div>
 
     <!-- jQuery ve Bootstrap gibi harici JavaScript kütüphanelerini sayfaya ekler -->
@@ -98,5 +95,9 @@
 
     <!-- Sayfanın herhangi bir yerinde özelleştirilmiş script bölümleri eklemek için kullanılır -->
     @RenderSection("scripts", required: false)
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Genomic Encryption Project</p>
+    </footer>
 </body>
+
 </html>

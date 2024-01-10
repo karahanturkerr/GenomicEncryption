@@ -1,5 +1,13 @@
 body {
-  background-image: url("/IMAGE/login.jpg");
+    background-image: url("~/IMAGE/ekip.jpg"); /* Arka plan resmi dosya yolunu buraya ekleyin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Eðer sayfa boyutu kadar kaplamasýný istiyorsanýz */
+    margin: 0; /* Body kenar boþluðunu kapatmak için */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card h1 {

@@ -22,6 +22,7 @@ namespace GenomicEncryption.Controllers
         // Bir metni Barrows Willer algoritmasıyla şifreleyen ve şifreli halini döndüren metot
         public EncryptViewMoel Encrypt(EncryptViewMoel model)
         {
+            model.PlainText = "$" + model.PlainText;
             // Metnin tüm döngüsel kaydırmalarını oluştur
             int n = model.PlainText.Length;
             string[] rotations = new string[n];
@@ -83,6 +84,7 @@ namespace GenomicEncryption.Controllers
             }
 
             // Sonucu model içine atayarak döndür
+            text = text.TrimStart('$');
             model.PlainText = text;
             return model;
         }

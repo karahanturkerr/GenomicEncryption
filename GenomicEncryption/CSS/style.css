@@ -6,8 +6,7 @@ body {
 }
 
 header {
-    background-color: #404040;
-    color: #fff;
+    color: black;
     text-align: center;
     padding: 20px;
 }
@@ -39,22 +38,20 @@ textarea {
 }
 
 button {
-    background-color:#404040;
+    background-color: #404040;
     color: #fff;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #555;
-}
+    button:hover {
+        background-color: #555;
+    }
 
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #404040;
-    color: #fff;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -74,12 +71,13 @@ li {
 
 a {
     text-decoration: none;
-   color: white; /* Bağlantı rengi */
+    color: black; /* Bağlantı rengi */
     font-weight: bold;
     font-size: 19px;
     transition: color 0.3s; /* Renk değişimi animasyonu */
 }
 
-a:hover {
-    color: #fff; /* Fare üzerine geldiğinde yeni renk */
-}
+    a:hover {
+        font-size: 19px;
+        color: red; /* Fare üzerine geldiğinde yeni renk */
+    }

@@ -1,6 +1,10 @@
-﻿@{
-    ViewBag.Title = "About";
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +22,9 @@
 <body>
     <header>
         <h1>Genetik Kod Şifreleme ve Çözme</h1>
-        
+
     </header>
-    
+
     <div class="card-container">
         <div class="card">
             <img src="~/IMAGE/team.jpg" alt="Team">
@@ -31,23 +35,22 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card">
             <img src="~/IMAGE/school.gif" alt="School">
             <div class="card-content">
-                <a href="~/Views/Home/Team.cshtml">School</a>
-                <a href="/Home/Team" class="btn btn-danger">Okul Hakkında</a>
-
+                <a href="/About/School" class="btn btn-danger">Okulumuz Hakkında</a>
                 <div class="info">
                     <p>Okul Bilgileri ve Hizmetleri</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="card">
             <img src="~/IMAGE/teacher.jpg" alt="Teacher">
             <div class="card-content">
-                <a href="~/Views/About/Teacher.cshtml">Teacher</a>
+                <a href="http://gozcan.home.uludag.edu.tr/" class="btn btn-danger" target="_blank">Hocamız Hakkında</a>
+
                 <div class="info">
                     <p>Öğretmen Bilgileri ve Eğitim Yaklaşımları</p>
                 </div>
@@ -56,8 +59,8 @@
     </div>
 
 
-      
-    
+
+
 </body>
 
 </html>

@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +19,7 @@
 <body>
     <main>
         <div class="container">
-            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            @using (Html.BeginForm("Login", "User", FormMethod.Post))
             {
                 <div class="card">
                     <h1>Giriş</h1>

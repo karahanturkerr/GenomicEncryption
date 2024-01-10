@@ -25,7 +25,6 @@ namespace GenomicEncryption.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken] // CSRF koruması için token eklemek
         public ActionResult Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -39,15 +38,16 @@ namespace GenomicEncryption.Controllers
                     FormsAuthentication.SetAuthCookie(user.Username, false);
 
                     TempData["SuccessMessage"] = "Başarıyla giriş yaptınız!";
-                    return RedirectToAction("Home");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 // Giriş başarısızsa, hata mesajı ekleyin ve View'ı gösterin
-                ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı.");
+                return RedirectToAction("Login", "User");
             }
 
             // ModelState geçerli değilse veya giriş başarısızsa, View'ı gösterin
-            return View(model);
+            return RedirectToAction("Login", "User");
+
         }
 
 

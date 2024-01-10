@@ -12,7 +12,7 @@ namespace GenomicEncryption.Models.Classes
     public class CONTEXT : DbContext
     {
         public CONTEXT() 
-            : base("name=CONTEXT") { }
+            : base("name=CONTEXT2") { }
         
         public DbSet<GenomicCodes> GenomicCodes { get; set; }
         public DbSet<Users> Users { get; set; }

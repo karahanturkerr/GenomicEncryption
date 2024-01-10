@@ -136,6 +136,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\CONTEXT.cs" />
     <Compile Include="Models\Classes\GenomicCodes.cs" />
+    <Compile Include="Models\Classes\Message.cs" />
+    <Compile Include="Models\Classes\userMessage.cs" />
     <Compile Include="Models\Classes\Users.cs" />
     <Compile Include="Models\ViewModels\EncryptViewMoel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
@@ -226,6 +228,7 @@
     <Content Include="Views\About\Teacher.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

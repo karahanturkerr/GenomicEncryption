@@ -5,18 +5,50 @@
     <!-- Karakter seti ve görüntüleme özellikleri tanımlanıyor -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
     <!-- Sayfa başlığı, @ViewBag.Title ile dinamik olarak belirleniyor -->
     <title>@ViewBag.Title - Genomic Encryption Uygulaması</title>
+
     <!-- CSS dosyalarını sayfaya eklemek için kullanılıyor -->
     @Styles.Render("~/Content/css")
 
     <!-- Modernizr script'i sayfaya ekleniyor -->
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        /* Gezinme çubuğu öğeleri için özel CSS */
+        .navbar {
+            background-color: #343a40; /* Koyu gri arkaplan rengi */
+        }
+
+        .navbar-brand, .nav-link {
+            color: #17a2b8 !important; /* Mavi renk */
+        }
+
+        .navbar-toggler {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Düğmeye hafif bir gölge eklenmiş */
+        }
+
+        /* Sayfa içeriğini sınırlayan konteyner */
+        .container.body-content {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer bölümü için özel CSS */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #343a40; /* Koyu gri arkaplan rengi */
+            color: #ffffff; /* Beyaz renk */
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Bootstrap gezinme çubuğu -->
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
@@ -34,14 +66,13 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <!-- Ana sayfa, Hakkında, İletişim ve Proje sayfalarına yönlendiren bağlantılar -->
-                    <li>@Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Hakkımızda", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Hakkımızda", "Index", "About", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("İletişim", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Proje", "Project", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 <!-- Kullanıcı girişi (login) bağlantısı -->
                 <ul class="navbar-nav">
-                    <li>@Html.ActionLink("Giriş", "Login", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Giriş", "Login", "User", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>

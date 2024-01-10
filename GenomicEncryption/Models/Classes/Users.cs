@@ -19,5 +19,7 @@ namespace GenomicEncryption.Models.Classes
         [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor.")]
         public string PasswordConfirm { get; set; }
 
+        public ICollection<userMessage> UserMessages { get; set; }
+
     }
 }

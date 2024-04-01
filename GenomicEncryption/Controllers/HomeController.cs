@@ -59,8 +59,15 @@ namespace GenomicEncryption.Controllers
             return View(degerler);
 
         }
-        
-        
+
+        public ActionResult TripleDESSifreleme()
+        {
+            var degerler = db.GenomicCodes.ToList();
+            return View(degerler);
+
+        }
+
+
         public ActionResult VeriTabaniGoruntule()
         {
             var degerler = db.GenomicCodes.ToList();

@@ -32,6 +32,10 @@
                     <label for="encrypted">Şifrelenmiş Veri :</label>
                     <input class="form-control" id="txtEncrypted" type="text" name="encrypted" disabled />
                 </div>
+                <div class="col">
+                    <label for="encryptionTime">Şifrelenme Süresi (μs) :</label>
+                    <input class="form-control" id="txtEncryptionTime" type="text" name="encryptionTime" disabled />
+                </div>
             </div>
         </div>
     </div>
@@ -52,9 +56,13 @@
                         Çöz
                     </button>
                 </div>
-                <div class="col">
+                <div class="col-8">
                     <label for="solved">Çözülmüş Veri :</label>
                     <input class="form-control" id="txtSolved" type="text" name="solved" disabled />
+                </div>
+                <div class="col">
+                    <label for="encryptionTime">Şifrelenme Süresi (μs) :</label>
+                    <input class="form-control" id="txtDecryptionTime" type="text" name="decryptionTime" disabled />
                 </div>
             </div>
         </div>
@@ -94,6 +102,8 @@
                 var element = document.getElementById('txtEncrypted');
                 element.value = res.EncryptedText;
                 element.title = res.EncryptedText;
+                var elementEncryptionTime = document.getElementById('txtEncryptionTime');
+                elementEncryptionTime.value = res.EncryptionTime + " μs";
             })
 
         }
@@ -110,10 +120,11 @@
                 var element = document.getElementById('txtSolved');
                 element.value = res.PlainText;
                 element.title = res.PlainText;
+
+                var elementDecryptionTime = document.getElementById('txtDecryptionTime');
+                elementDecryptionTime.value = res.DecryptionTime + " μs";
             })
-            //$('#genomikSelect :selected').each(function (i, selected) {
-            //    SecilenKodlar[i] = $(selected).text();
-            //});
+            
         }
     </script>
 

@@ -39,6 +39,22 @@ namespace GenomicEncryption.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult IndexEncryptTripleDES(EncryptViewMoel model)
+        {
+            TripleDESEncryption brw = new TripleDESEncryption();
+            var result = brw.Encrypt(model);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult IndexDecryptTripleDES(EncryptViewMoel model)
+        {
+            TripleDESEncryption brw = new TripleDESEncryption();
+            var result = brw.Decrypt(model);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
 
 
     }

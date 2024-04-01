@@ -9,5 +9,7 @@ namespace GenomicEncryption.Models
     {
         public string PlainText { get; set; }
         public string EncryptedText { get; set; }
+        public string EncryptionTime { get; set; }
+        public string DecryptionTime { get; set; }
     }
 }

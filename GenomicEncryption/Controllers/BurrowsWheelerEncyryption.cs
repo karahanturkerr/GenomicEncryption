@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Text;
 using GenomicEncryption.Models;
+using System.Diagnostics;
 
 
 namespace GenomicEncryption.Controllers
@@ -22,6 +23,9 @@ namespace GenomicEncryption.Controllers
         // Bir metni Barrows Willer algoritmasıyla şifreleyen ve şifreli halini döndüren metot
         public EncryptViewMoel Encrypt(EncryptViewMoel model)
         {
+            Stopwatch encryptionTimer = Stopwatch.StartNew();
+
+
             model.PlainText = "$" + model.PlainText;
             // Metnin tüm döngüsel kaydırmalarını oluştur
             int n = model.PlainText.Length;
@@ -40,7 +44,8 @@ namespace GenomicEncryption.Controllers
             {
                 bwt += rotations[i][n - 1];
             }
-
+            encryptionTimer.Stop();
+            model.EncryptionTime = (encryptionTimer.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))).ToString();
             // Sonuçları model içine atayarak döndür
             model.EncryptedText = bwt;
             return model;
@@ -50,6 +55,8 @@ namespace GenomicEncryption.Controllers
         // Bir metnin Barrows Willer algoritmasıyla şifresini çözen ve orijinal metni döndüren metot
         public EncryptViewMoel Decrypt(EncryptViewMoel model)
         {
+            Stopwatch decryptionTimer = Stopwatch.StartNew();
+
             // Son sütunu al
             int n = model.EncryptedText.Length;
             char[] last = model.EncryptedText.ToCharArray();
@@ -82,7 +89,8 @@ namespace GenomicEncryption.Controllers
                 text += first[index];
                 index = next[index];
             }
-
+            decryptionTimer.Stop();
+            model.DecryptionTime = (decryptionTimer.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L))).ToString();
             // Sonucu model içine atayarak döndür
             text = text.TrimStart('$');
             model.PlainText = text;

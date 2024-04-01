@@ -1,11 +1,11 @@
 ﻿@using GenomicEncryption.Models.Classes
 @model List<GenomicCodes>
 @{
-    ViewBag.Title = "AesSifreleme";
+    ViewBag.Title = "TripleDESSifreleme";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Aes Sifreleme Algoritması</h2>
+<h2>TripleDESSifreleme Algoritması</h2>
 
 
 <div class="container">
@@ -93,7 +93,7 @@
                 PlainText: val,
                 EncryptedText: '',
             };
-            var url = `/Encryption/IndexEncrypt/`;
+            var url = `/Encryption/IndexEncryptTripleDES/`;
             $.post(url,mdl, function (res) {
                 var element = document.getElementById('txtEncrypted');
                 element.value = res.EncryptedText;
@@ -102,7 +102,7 @@
                 var elementEncryptionTime = document.getElementById('txtEncryptionTime');
                 elementEncryptionTime.value = res.EncryptionTime + " μs";
             })
-            
+
         }
         function coz() {
 
@@ -111,7 +111,7 @@
                 PlainText: '',
                 EncryptedText: val,
             };
-            var url = `/Encryption/IndexDecrypt/`;
+            var url = `/Encryption/IndexDecryptTripleDES/`;
             $.post(url, mdl, function (res) {
                 console.log(res);
                 var element = document.getElementById('txtSolved');
@@ -121,7 +121,7 @@
                 var elementDecryptionTime = document.getElementById('txtDecryptionTime');
                 elementDecryptionTime.value = res.DecryptionTime + " μs";
             })
-            
+
         }
     </script>
 

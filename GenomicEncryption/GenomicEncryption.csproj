@@ -128,6 +128,7 @@
     <Content Include="CSS\login.css" />
     <Content Include="CSS\loginandregister.css" />
     <Content Include="CSS\project2.css" />
+    <Compile Include="Controllers\TripleDESEncryption.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -236,6 +237,7 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Home\TripleDESSifreleme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

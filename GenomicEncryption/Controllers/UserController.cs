@@ -33,19 +33,16 @@ namespace GenomicEncryption.Controllers
 
                 if (user != null)
                 {
-                    // Kullanıcı giriş yaptığında oturum yönetimi sağlayabilirsiniz
-                    // Örneğin, FormsAuthentication veya Identity kullanabilirsiniz
+
                     FormsAuthentication.SetAuthCookie(user.Username, false);
 
                     TempData["SuccessMessage"] = "Başarıyla giriş yaptınız!";
                     return RedirectToAction("Index", "Home");
                 }
 
-                // Giriş başarısızsa, hata mesajı ekleyin ve View'ı gösterin
                 return RedirectToAction("Login", "User");
             }
 
-            // ModelState geçerli değilse veya giriş başarısızsa, View'ı gösterin
             return RedirectToAction("Login", "User");
 
         }

@@ -94,6 +94,12 @@ namespace GenomicEncryption.Controllers
             return RedirectToAction("KodEkle");
         }
 
+        public ActionResult Istatistik()
+        {
+            var degerler = db.GenomicCodesTimes.ToList();
+            return View(degerler);
+        }
+
 
     }
 }

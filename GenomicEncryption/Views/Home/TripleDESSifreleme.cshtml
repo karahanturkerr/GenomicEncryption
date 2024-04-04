@@ -101,6 +101,17 @@
 
                 var elementEncryptionTime = document.getElementById('txtEncryptionTime');
                 elementEncryptionTime.value = res.EncryptionTime + " μs";
+
+                var elapsedTime = res.EncryptionTime;
+
+                var encryptionTimeData = {
+                    AlgorithmName: "TripleDESSifreleme",
+                    IsEncrypt: true,
+                    Time: elapsedTime
+                };
+                $.post("/Encryption/LogTime", encryptionTimeData, function (response) {
+                    console.log(response);
+                });
             })
 
         }
@@ -120,6 +131,17 @@
 
                 var elementDecryptionTime = document.getElementById('txtDecryptionTime');
                 elementDecryptionTime.value = res.DecryptionTime + " μs";
+
+                var elapsedTime = res.DecryptionTime;
+
+                var encryptionTimeData = {
+                    AlgorithmName: "TripleDESSifreleme",
+                    IsEncrypt: true,
+                    Time: elapsedTime
+                };
+                $.post("/Encryption/LogTime", encryptionTimeData, function (response) {
+                    console.log(response);
+                });
             })
 
         }

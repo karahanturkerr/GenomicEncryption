@@ -94,15 +94,26 @@
                 EncryptedText: '',
             };
             var url = `/Encryption/IndexEncrypt/`;
-            $.post(url,mdl, function (res) {
+            $.post(url, mdl, function (res) {
                 var element = document.getElementById('txtEncrypted');
                 element.value = res.EncryptedText;
                 element.title = res.EncryptedText;
 
                 var elementEncryptionTime = document.getElementById('txtEncryptionTime');
                 elementEncryptionTime.value = res.EncryptionTime + " μs";
+
+                var elapsedTime = res.EncryptionTime;
+
+                var encryptionTimeData = {
+                    AlgorithmName: "AesSifreleme",
+                    IsEncrypt: true,
+                    Time: elapsedTime
+                };
+                $.post("/Encryption/LogTime", encryptionTimeData, function (response) {
+                    console.log(response);
+                });
             })
-            
+
         }
         function coz() {
 
@@ -120,8 +131,20 @@
 
                 var elementDecryptionTime = document.getElementById('txtDecryptionTime');
                 elementDecryptionTime.value = res.DecryptionTime + " μs";
+
+                var elapsedTime = res.DecryptionTime;
+
+                var encryptionTimeData = {
+                    AlgorithmName: "AesSifreleme",
+                    IsEncrypt: false,
+                    Time: elapsedTime
+                };
+                $.post("/Encryption/LogTime", encryptionTimeData, function (response) {
+                    console.log(response);
+                });
+
             })
-            
+
         }
     </script>
 

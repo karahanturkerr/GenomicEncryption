@@ -133,17 +133,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202401091619218_migrationUsers.cs" />
-    <Compile Include="Migrations\202401091619218_migrationUsers.designer.cs">
-      <DependentUpon>202401091619218_migrationUsers.cs</DependentUpon>
+    <Compile Include="Migrations\202404041220103_migration.cs" />
+    <Compile Include="Migrations\202404041220103_migration.designer.cs">
+      <DependentUpon>202404041220103_migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\CONTEXT.cs" />
     <Compile Include="Models\Classes\GenomicCodes.cs" />
+    <Compile Include="Models\Classes\GenomicCodesTimes.cs" />
     <Compile Include="Models\Classes\Messages.cs" />
     <Compile Include="Models\Classes\userMessage.cs" />
     <Compile Include="Models\Classes\Users.cs" />
+    <Compile Include="Models\ViewModels\EncryptTimeModel.cs" />
     <Compile Include="Models\ViewModels\EncryptViewMoel.cs" />
+    <Compile Include="Models\ViewModels\GenomicCodeModel.cs" />
+    <Compile Include="Models\ViewModels\GraphViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -238,6 +242,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Home\TripleDESSifreleme.cshtml" />
+    <Content Include="Views\Home\Istatistik.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -272,8 +277,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202401091619218_migrationUsers.resx">
-      <DependentUpon>202401091619218_migrationUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202404041220103_migration.resx">
+      <DependentUpon>202404041220103_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,13 +7,13 @@ namespace GenomicEncryption.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class migrationUsers : IMigrationMetadata
+    public sealed partial class migration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(migrationUsers));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202401091619218_migrationUsers"; }
+            get { return "202404041220103_migration"; }
         }
         
         string IMigrationMetadata.Source

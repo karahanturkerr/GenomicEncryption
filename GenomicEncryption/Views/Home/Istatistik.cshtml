@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Istatistik";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<row>
+    <h2>Algoritmalar Arası Karşılaştırma</h2>
+</row>
+<br />
+<row>
+    <card class="ma-3">
+        <system-bar dark color="blue-grey darken-4">
+            <span class="caption">
+                Kullanılan Algoritmaların Şifreleme Hız Grafiği (mikrosaniye μs)
+            </span>
+        </system-bar>
+        <div>
+            <canvas id="myChartSifrele"></canvas>
+        </div>
+    </card>
+</row>
+<br />
+<br />
+<row>
+    <card class="ma-3">
+        <system-bar dark color="blue-grey darken-4">
+            <span class="caption">
+                Kullanılan Algoritmaların Çözme Hız Grafiği (mikrosaniye μs)
+            </span>
+        </system-bar>
+        <div>
+            <canvas id="myChartCoz"></canvas>
+        </div>
+    </card>
+</row>
+
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctxSifrele = document.getElementById('myChartSifrele');
+        const ctxCoz = document.getElementById('myChartCoz');
+
+        function getAllData() {
+            var url = '/Encryption/GetExistingData';
+            $.get(url, function (response) {
+                if (response)
+                    setGraph(response);
+
+            })
+        }
+
+        function setGraph(response) {
+            new Chart(ctxSifrele,
+                {
+                    type: 'line',
+                    data: {
+                        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                        datasets: [{
+                            label: 'Aes Algoritması Şifreleme Hızı(μs)',
+                            data: response.AesTrueCounts,
+                            borderWidth: 4
+                        },
+                        {
+                            label: 'Burrows Algoritması Şifreleme Hızı(μs)',
+                            data: response.BurrowsTrueCounts,
+                            borderWidth: 4
+                        },
+                        {
+                            label: 'TripleDES Algoritması Şifreleme Hızı(μs)',
+                            data: response.TripleDESTrueCounts,
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            new Chart(ctxCoz,
+                {
+                    type: 'line',
+                    data: {
+                        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                        datasets: [{
+                            label: 'Aes Algoritması Çözme Hızı(μs)',
+                            data: response.AesFalseCounts,
+                            borderWidth: 4
+                        },
+                        {
+                            label: 'Burrows Algoritması Çözme Hızı(μs)',
+                            data: response.BurrowsFalseCounts,
+                            borderWidth: 4
+                        },
+                        {
+                            label: 'TripleDES Algoritması Çözme Hızı(μs)',
+                            data: response.TripleDESFalseCounts,
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+        }
+
+        function getStatData(response, isencrypt, functionName) {
+            var filterAr = response.filter(function (f) {
+                return f.IsEncrypt == isencrypt && f.AlgorithmName == functionName
+            });
+
+            return filterAr.map(function (m) {
+                return m.Time;
+            });
+        }
+
+        window.onload = function () {
+            getAllData();
+        }
+
+    </script>
+}

@@ -48,16 +48,31 @@ namespace GenomicEncryption.Controllers
         [HttpPost]
         public JsonResult IndexEncryptTripleDES(EncryptViewMoel model)
         {
-            TripleDESEncryption brw = new TripleDESEncryption();
-            var result = brw.Encrypt(model);
+            TripleDESEncryption trp = new TripleDESEncryption();
+            var result = trp.Encrypt(model);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         public JsonResult IndexDecryptTripleDES(EncryptViewMoel model)
         {
-            TripleDESEncryption brw = new TripleDESEncryption();
-            var result = brw.Decrypt(model);
+            TripleDESEncryption trp = new TripleDESEncryption();
+            var result = trp.Decrypt(model);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult IndexEncryptTwofish(EncryptViewMoel model)
+        {
+            TwofishEncryption twf = new TwofishEncryption();
+            var result = twf.Encrypt(model);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult IndexDecryptTwofish(EncryptViewMoel model)
+        {
+            TwofishEncryption twf = new TwofishEncryption();
+            var result = twf.Decrypt(model);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -103,6 +118,8 @@ namespace GenomicEncryption.Controllers
             graphModel.BurrowsFalseCounts = GetFilteredData(list, "BurrowsWheelerSifreleme", false);
             graphModel.TripleDESTrueCounts = GetFilteredData(list, "TripleDESSifreleme", true);
             graphModel.TripleDESFalseCounts = GetFilteredData(list, "TripleDESSifreleme", false);
+            graphModel.TwofishTrueCounts = GetFilteredData(list, "TwofishSifreleme", true);
+            graphModel.TwofishFalseCounts = GetFilteredData(list, "TwofishSifreleme", false);
 
             return graphModel;
 
@@ -111,7 +128,7 @@ namespace GenomicEncryption.Controllers
 
         private List<double> GetFilteredData(List<GenomicCodesTimes> list, string functionName, bool isEncrypt)
         {
-            
+
             var newList = list
                   .Where(gc => gc.AlgorithmName == functionName && gc.IsEncrypt == isEncrypt)
                   .OrderByDescending(o => o.CreatedDate)
@@ -127,6 +144,73 @@ namespace GenomicEncryption.Controllers
             return newList;
 
         }
+
+        [HttpPost]
+        public ActionResult EncryptedDataSave(string AlgoritmaAdi, string SifrelenmisVeri)
+        {
+            // Veritabanında aynı şifrelenmiş verinin olup olmadığını kontrol et
+            bool varMi = db.EncryptedData.Any(e => e.SifrelenmisVeri == SifrelenmisVeri);
+
+            if (!varMi)
+            {
+                var encryptedData = new EncryptedData
+                {
+                    AlgoritmaAdi = AlgoritmaAdi,
+                    SifrelenmisVeri = SifrelenmisVeri,
+                };
+
+                db.EncryptedData.Add(encryptedData);
+                db.SaveChanges();
+
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Bu şifrelenmiş veri zaten var." });
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetDataByAlgorithm(string algorithm = "")
+        {
+            if (string.IsNullOrEmpty(algorithm))
+            {
+                algorithm = "AesSifreleme"; // Varsayılan olarak AesSifreleme seçili olacak
+            }
+            var encryptedDataList = db.EncryptedData.Where(e => e.AlgoritmaAdi == algorithm).ToList();
+            return Json(encryptedDataList, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult CalculateSimilarity(string text1, string text2)
+        {
+            int eslesenHarfSayisi = HarfEslesmeSay(text1, text2);
+            int maxHarfSayisi = Math.Max(text1.Length, text2.Length);
+            double benzerlikOrani = (double)eslesenHarfSayisi / maxHarfSayisi * 100;
+
+            return Json(new { similarityPercentage = benzerlikOrani });
+        }
+
+        private int HarfEslesmeSay(string metin1, string metin2)
+        {
+            int eslesenHarfSayisi = 0;
+            int minUzunluk = Math.Min(metin1.Length, metin2.Length);
+
+            for (int i = 0; i < minUzunluk; i++)
+            {
+                if (metin1[i] == metin2[i])
+                {
+                    eslesenHarfSayisi++;
+                }
+            }
+
+            return eslesenHarfSayisi;
+        }
+
+
+
+
+
 
     }
 }

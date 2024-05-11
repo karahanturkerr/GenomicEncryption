@@ -1,103 +1,160 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Karakter seti ve görüntüleme özellikleri tanımlanıyor -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>UGenEncrypt</title>
+    @Styles.Render("~/CSS/thema.css")
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    
+    <script src="~/Scripts/thema.js"></script>
 
-    <!-- Sayfa başlığı, @ViewBag.Title ile dinamik olarak belirleniyor -->
-    <title>@ViewBag.Title - Genomic Encryption Uygulaması</title>
 
-    <!-- CSS dosyalarını sayfaya eklemek için kullanılıyor -->
-    @Styles.Render("~/Content/css")
-
-    <!-- Modernizr script'i sayfaya ekleniyor -->
-    @Scripts.Render("~/bundles/modernizr")
-
-    <style>
-        /* Gezinme çubuğu öğeleri için özel CSS */
-        .navbar {
-            background-color: #343a40; /* Koyu gri arkaplan rengi */
-        }
-
-        .navbar-brand, .nav-link {
-            color: #17a2b8 !important; /* Mavi renk */
-        }
-
-        .navbar-toggler {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Düğmeye hafif bir gölge eklenmiş */
-        }
-
-        /* Sayfa içeriğini sınırlayan konteyner */
-        .container.body-content {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        /* Footer bölümü için özel CSS */
-        footer {
-            text-align: center;
-            padding: 0px;
-            color: #ffffff; /* Beyaz renk */
-            margin-top: 10px;
-        }
-    </style>
 </head>
-
 <body>
-    <!-- Bootstrap gezinme çubuğu -->
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            <!-- Uygulama adı ve ana sayfaya yönlendiren bağlantı -->
-            @Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
-            <!-- Küçük ekranlarda gezinme çubuğunu açıp kapatmayı sağlayan düğme -->
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Gezintiyi aç/kapat" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Gezinme çubuğu öğeleri -->
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <!-- Ana sayfa, Hakkında, İletişim ve Proje sayfalarına yönlendiren bağlantılar -->
-                    <li>@Html.ActionLink("Hakkımızda", "Index", "About", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("İletişim", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Proje", "Project", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index">UGenEncrypt</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
                 </ul>
-                <!-- Kullanıcı girişi (login) bağlantısı -->
-                <ul class="navbar-nav">
-                    <li>@Html.ActionLink("Giriş", "Login", "User", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
-        </div>
+            </li>
+        </ul>
     </nav>
+    <!-- Bootstrap gezinme çubuğu -->
 
-    <!-- Sayfa içeriğini sınırlayan bir konteyner -->
-    <div class="container body-content">
-        <!-- Sayfa içeriğini temsil eden bölüm -->
-        @RenderBody()
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Ana Sayfa</div>
+                        <a class="nav-link" href="@Url.Action("Index")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                            Ana Sayfa
+                        </a>
 
-        <!-- Yatay bir çizgi ile ayrılan footer bölümü -->
-        <hr />
+                        <div class="sb-sidenav-menu-heading">Algoritmalar</div>
+                        <a class="nav-link" href="@Url.Action("AesSifreleme")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-dna"></i></div>
+                            Aes Şifreleme
+                        </a>
+                        <a class="nav-link" href="@Url.Action("BurrowsWheelerSifreleme")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-dna"></i></div>
+                            BurrowsWheeler Şifreleme
+                        </a>
+                        <a class="nav-link" href="@Url.Action("TripleDESSifreleme")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-dna"></i></div>
+                            TripleDES Şifreleme
+                        </a>
+                        <a class="nav-link" href="@Url.Action("TwofishSifreleme")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-dna"></i></div>
+                            Twofish Şifreleme
+                        </a>
 
-        <!-- Sayfa altında yer alan bilgi çubuğu -->
 
-    </div>
+                        <div class="sb-sidenav-menu-heading">Veri İşlemleri</div>
+                        <a class="nav-link" href="@Url.Action("KodEkle")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-keyboard"></i></div>
+                            Veri Ekle
+                        </a>
+                        <a class="nav-link" href="@Url.Action("VeriTabaniGoruntule")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-database"></i></div>
+                            Kayıtlı Verileri Görüntüle
+                        </a>
+                        <div class="sb-sidenav-menu-heading">İstatistik</div>
+                        <a class="nav-link" href="@Url.Action("Istatistik")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            İstatistik
+                        </a>
 
-    <!-- jQuery ve Bootstrap gibi harici JavaScript kütüphanelerini sayfaya ekler -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+                        <div class="sb-sidenav-menu-heading">Proje</div>
+                        <a class="nav-link" href="@Url.Action("Project")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-circle-info"></i></div>
+                            Proje
+                        </a>
 
-    <!-- Sayfanın herhangi bir yerinde özelleştirilmiş script bölümleri eklemek için kullanılır -->
-    @RenderSection("scripts", required: false)
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Genomic Encryption Project</p>
-    </footer>
+
+
+                        <div class="sb-sidenav-menu-heading">Hakkımızda</div>
+                        <a class="nav-link" href="@Url.Action("Team")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-secret"></i></div>
+                            Hakkımızda
+                        </a>
+
+
+                        <div class="sb-sidenav-menu-heading">Contact</div>
+                        <a class="nav-link" href="@Url.Action("Contact")">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-envelope"></i></div>
+                            İletişim
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Ayarlar</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
+                            Ayarlar
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    Hesap
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <li>@Html.ActionLink("Giriş", "Login", "User", new { area = "" }, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Kayıt", "Register", "User", new { area = "" }, new { @class = "nav-link" })</li>
+
+                                    </nav>
+                                </div>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <!-- Sayfa içeriğini sınırlayan bir konteyner -->
+        <div class="container body-content">
+            <!-- Sayfa içeriğini temsil eden bölüm -->
+            @RenderBody()
+
+            <!-- Yatay bir çizgi ile ayrılan footer bölümü -->
+            <hr />
+
+            <!-- Sayfa altında yer alan bilgi çubuğu -->
+
+        </div>
+
+        <!-- jQuery ve Bootstrap gibi harici JavaScript kütüphanelerini sayfaya ekler -->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+        <!-- Sayfanın herhangi bir yerinde özelleştirilmiş script bölümleri eklemek için kullanılır -->
+        @RenderSection("scripts", required: false)
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Genomic Encryption Project</p>
+        </footer>
+     
 </body>
 
 </html>

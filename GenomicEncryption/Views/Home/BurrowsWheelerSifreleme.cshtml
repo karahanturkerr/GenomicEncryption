@@ -30,7 +30,14 @@
                 </div>
                 <div class="col-8">
                     <label for="encrypted">Şifrelenmiş Veri :</label>
-                    <input class="form-control" id="txtEncrypted" type="text" name="encrypted" disabled />
+                    <div class="input-group">
+                        <input class="form-control" id="txtEncrypted" type="text" name="encrypted" disabled />
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" onclick="kopyala()">
+                                Kopyala
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col">
                     <label for="encryptionTime">Şifrelenme Süresi (μs) :</label>
@@ -39,7 +46,8 @@
             </div>
         </div>
     </div>
-
+    <br />
+    <br />
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -115,6 +123,15 @@
                 $.post("/Encryption/LogTime", encryptionTimeData, function (response) {
                     console.log(response);
                 });
+                var val = $('#genomikSelect option:selected').val();
+                var mdl_encData = {
+                    AlgoritmaAdi: "BurrowsWheelerSifreleme",
+                    SifrelenmisVeri: $('#txtEncrypted').val(), // Şifrelenmiş veriyi al
+                };
+                $.post("/Encryption/EncryptedDataSave", mdl_encData, function (res) {
+                    console.log(res);
+                    // İşlem tamamlandıktan sonra yapılacak işlemler...
+                });
             })
 
         }
@@ -147,6 +164,21 @@
                 });
             })
             
+        }
+        function kopyala() {
+            var txtEncrypted = document.getElementById("txtEncrypted");
+            var kopyalanacakMetin = txtEncrypted.value;
+
+            // Geçici bir input elementi oluştur ve içeriği kopyalayıp yapıştır.
+            var geciciInput = document.createElement("input");
+            document.body.appendChild(geciciInput);
+            geciciInput.setAttribute("value", kopyalanacakMetin);
+            geciciInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(geciciInput);
+
+            // Kopyalanan veri hakkında bir bildirim göster
+            alert("Şifrelenmiş veri kopyalandı!");
         }
     </script>
 

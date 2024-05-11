@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -121,14 +124,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AesEncryption.cs" />
     <Compile Include="Controllers\BurrowsWheelerEncyryption.cs" />
+    <Compile Include="Controllers\DataSimilarity.cs" />
     <Compile Include="Controllers\EncryptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Content Include="CSS\contact2.css" />
+    <Content Include="CSS\Istatistik.css" />
     <Content Include="CSS\login.css" />
     <Content Include="CSS\loginandregister.css" />
     <Content Include="CSS\project2.css" />
     <Compile Include="Controllers\TripleDESEncryption.cs" />
+    <Compile Include="Controllers\TwofishEncryption.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -139,6 +145,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\CONTEXT.cs" />
+    <Compile Include="Models\Classes\EncryptedData.cs" />
     <Compile Include="Models\Classes\GenomicCodes.cs" />
     <Compile Include="Models\Classes\GenomicCodesTimes.cs" />
     <Compile Include="Models\Classes\Messages.cs" />
@@ -177,8 +184,14 @@
     <Content Include="CSS\style2.css" />
     <Content Include="CSS\teacher.css" />
     <Content Include="CSS\team.css" />
+    <Content Include="CSS\thema.css" />
+    <Content Include="CSS\VerisEsleme.css" />
     <Content Include="IMAGE\27230.jpg" />
+    <Content Include="IMAGE\3des.jpg" />
+    <Content Include="IMAGE\aes1.jpg" />
     <Content Include="IMAGE\ayetullah.jpeg" />
+    <Content Include="IMAGE\backgroud_dark.jpg" />
+    <Content Include="IMAGE\burrows.png" />
     <Content Include="IMAGE\ekip.jpg" />
     <Content Include="IMAGE\ekip2.jpg" />
     <Content Include="IMAGE\Genomik2.jpg" />
@@ -186,6 +199,8 @@
     <Content Include="IMAGE\genomik4.jpg" />
     <Content Include="IMAGE\GenomikMavi.jpg" />
     <Content Include="IMAGE\gif.gif" />
+    <Content Include="IMAGE\hesaplama_background.jpg" />
+    <Content Include="IMAGE\hesaplama_duvar_kagıt.jpg" />
     <Content Include="IMAGE\ibrahim.jpg" />
     <Content Include="IMAGE\karahan.jpg" />
     <Content Include="IMAGE\message.png" />
@@ -194,6 +209,7 @@
     <Content Include="IMAGE\school.gif" />
     <Content Include="IMAGE\teacher.jpg" />
     <Content Include="IMAGE\team.jpg" />
+    <Content Include="IMAGE\twofish.png" />
     <Content Include="img\back-arrow.svg" />
     <Content Include="img\eye-regular.svg" />
     <Content Include="favicon.ico" />
@@ -217,6 +233,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\thema.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -235,14 +252,13 @@
     <Content Include="Views\Home\BurrowsWheelerSifreleme.cshtml" />
     <Content Include="Views\Home\VeriTabaniGoruntule.cshtml" />
     <Content Include="Views\Home\KodEkle.cshtml" />
-    <Content Include="Views\About\Team.cshtml" />
-    <Content Include="Views\About\School.cshtml" />
-    <Content Include="Views\About\Teacher.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
-    <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Home\TripleDESSifreleme.cshtml" />
     <Content Include="Views\Home\Istatistik.cshtml" />
+    <Content Include="Views\Home\VeriEsleme.cshtml" />
+    <Content Include="Views\Home\TwofishSifreleme.cshtml" />
+    <Content Include="Views\Home\Team.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

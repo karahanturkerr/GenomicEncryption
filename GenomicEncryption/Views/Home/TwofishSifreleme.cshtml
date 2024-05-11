@@ -1,11 +1,12 @@
-﻿@using GenomicEncryption.Models.Classes
+﻿
+@using GenomicEncryption.Models.Classes
 @model List<GenomicCodes>
 @{
-    ViewBag.Title = "TripleDESSifreleme";
+    ViewBag.Title = "TwofishSifreleme";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>TripleDESSifreleme Algoritması</h2>
+<h2>TwofishSifreleme Algoritması</h2>
 
 
 <div class="container">
@@ -101,8 +102,8 @@
                 PlainText: val,
                 EncryptedText: '',
             };
-            var url = `/Encryption/IndexEncryptTripleDES/`;
-            $.post(url,mdl, function (res) {
+            var url = `/Encryption/IndexEncryptTwofish/`;
+            $.post(url, mdl, function (res) {
                 var element = document.getElementById('txtEncrypted');
                 element.value = res.EncryptedText;
                 element.title = res.EncryptedText;
@@ -113,16 +114,17 @@
                 var elapsedTime = res.EncryptionTime;
 
                 var encryptionTimeData = {
-                    AlgorithmName: "TripleDESSifreleme",
+                    AlgorithmName: "TwofishSifreleme",
                     IsEncrypt: true,
                     Time: elapsedTime
                 };
                 $.post("/Encryption/LogTime", encryptionTimeData, function (response) {
                     console.log(response);
                 });
+
                 var val = $('#genomikSelect option:selected').val();
                 var mdl_encData = {
-                    AlgoritmaAdi: "TripleDESSifreleme",
+                    AlgoritmaAdi: "TwofishSifreleme",
                     SifrelenmisVeri: $('#txtEncrypted').val(), // Şifrelenmiş veriyi al
                 };
                 $.post("/Encryption/EncryptedDataSave", mdl_encData, function (res) {
@@ -139,7 +141,7 @@
                 PlainText: '',
                 EncryptedText: val,
             };
-            var url = `/Encryption/IndexDecryptTripleDES/`;
+            var url = `/Encryption/IndexDecryptTwofish/`;
             $.post(url, mdl, function (res) {
                 console.log(res);
                 var element = document.getElementById('txtSolved');
@@ -152,13 +154,14 @@
                 var elapsedTime = res.DecryptionTime;
 
                 var encryptionTimeData = {
-                    AlgorithmName: "TripleDESSifreleme",
+                    AlgorithmName: "TwofishSifreleme",
                     IsEncrypt: false,
                     Time: elapsedTime
                 };
                 $.post("/Encryption/LogTime", encryptionTimeData, function (response) {
                     console.log(response);
                 });
+
             })
 
         }
@@ -177,10 +180,13 @@
             // Kopyalanan veri hakkında bir bildirim göster
             alert("Şifrelenmiş veri kopyalandı!");
         }
+
     </script>
 
 
 }
+
+
 
 
 

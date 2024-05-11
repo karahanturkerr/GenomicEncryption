@@ -1,0 +1,170 @@
+﻿@using GenomicEncryption.Models.Classes
+@model List<EncryptedData>
+@{
+    ViewBag.Title = "VeriEsleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genomic Encryption - @ViewBag.Title</title>
+    @Styles.Render("~/CSS/VerisEsleme.css")
+</head>
+
+<style>
+    .buton_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px; /* Ekran yüksekliği kadar alanı kaplar */
+    }
+
+    .buton_col {
+        text-align: center;
+    }
+
+    #benzerlikLabel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+    }
+
+    #benzerlikSonucu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+    }
+
+    #buton_hesapla {
+        font-size: 30px;
+    }
+</style>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h3>Birinci Algoritma</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <label for="algoritmaSelect">Birinci Algoritmayı Seçiniz</label>
+                        <select class="form-control" name="algoritma" id="algoritmaSelect">
+                            <option value="AesSifreleme">Aes Sifreleme</option>
+                            <option value="BurrowsWheelerSifreleme">BurrowsWheeler Sifreleme</option>
+                            <option value="TripleDESSifreleme">TripleDES Sifreleme</option>
+                            <option value="TwofishSifreleme">Twofish Sifreleme</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="veriSelect">Veri Seçiniz</label>
+                        <select class="form-control" name="veri" id="veriSelect">
+                            <!-- Veritabanından gelecek veriler buraya eklenecek -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h3>İkinci Algoritma</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <label for="algoritmaSelect2">İkinci Algoritmayı Seçiniz</label>
+                        <select class="form-control" name="algoritma" id="algoritmaSelect2">
+                            <option value="AesSifreleme">Aes Sifreleme</option>
+                            <option value="BurrowsWheelerSifreleme">BurrowsWheeler Sifreleme</option>
+                            <option value="TripleDESSifreleme">TripleDES Sifreleme</option>
+                            <option value="TwofishSifreleme">Twofish Sifreleme</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="veriSelect2">Veri Seçiniz</label>
+                        <select class="form-control" name="veri" id="veriSelect2">
+                            <!-- Veritabanından gelecek veriler buraya eklenecek -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="buton_container">
+    <div class="buton_col">
+        <button id="buton_hesapla" type="button" class="btn btn-primary" onclick="hesapla()">Hesapla</button>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mt-3">
+                <div class="col">
+                    <label id="benzerlikLabel">BENZERLİK ORANI </label>
+                    <span id="benzerlikSonucu"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#veriSelect').prop('disabled', true);
+            $('#algoritmaSelect').change(function () {
+                var selectedAlgorithm = $(this).val();
+                $.get('/Encryption/GetDataByAlgorithm', { algorithm: selectedAlgorithm }, function (data) {
+                    $('#veriSelect').empty().prop('disabled', false);
+                    $.each(data, function (index, item) {
+                        $('#veriSelect').append($('<option>', {
+                            value: item.SifrelenmisVeri,
+                            text: item.SifrelenmisVeri
+                        }));
+                    });
+                });
+            }).change();
+        });
+
+        $(document).ready(function () {
+            $('#veriSelect2').prop('disabled', true);
+            $('#algoritmaSelect2').change(function () {
+                var selectedAlgorithm = $(this).val();
+                $.get('/Encryption/GetDataByAlgorithm', { algorithm: selectedAlgorithm }, function (data) {
+                    $('#veriSelect2').empty().prop('disabled', false);
+                    $.each(data, function (index, item) {
+                        $('#veriSelect2').append($('<option>', {
+                            value: item.SifrelenmisVeri,
+                            text: item.SifrelenmisVeri
+                        }));
+                    });
+                });
+            }).change();
+        });
+
+        function hesapla() {
+            var text1 = $('#veriSelect').val();
+            var text2 = $('#veriSelect2').val();
+
+            $.post('/Encryption/CalculateSimilarity', { text1: text1, text2: text2 }, function (data) {
+                var benzerlikOrani = data.similarityPercentage.toFixed(2);
+                $('#benzerlikSonucu').text(benzerlikOrani + "%");
+            });
+        }
+    </script>
+}

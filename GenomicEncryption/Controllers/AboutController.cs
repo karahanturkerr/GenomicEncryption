@@ -13,10 +13,7 @@ namespace GenomicEncryption.Controllers
         {
             return View();
         }
-        public ActionResult Team()
-        {
-            return View();
-        }
+        
         public ActionResult School()
         {
             return View();

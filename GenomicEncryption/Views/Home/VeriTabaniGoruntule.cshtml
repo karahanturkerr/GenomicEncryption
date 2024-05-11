@@ -2,6 +2,7 @@
 @model List<GenomicCodes>
 @{
     ViewBag.Title = "VeriTabaniGoruntule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Styles.Render("~/Content/css")
 
@@ -20,10 +21,11 @@
         {
             <tr>
                 <th>@ktgr.ID</th>
-                <td>@ktgr.DEGER</td>
+                <td>@(ktgr.DEGER.Length > 50 ? ktgr.DEGER.Substring(0, 50) + "..." : ktgr.DEGER)</td>
                 <td>@ktgr.AD</td>
             </tr>
         }
+
     </tbody>
 </table>
 

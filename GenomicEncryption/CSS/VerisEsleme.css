@@ -1,0 +1,9 @@
+﻿
+body {
+    background-image: url("/IMAGE/hesaplama_background.jpg"); /* Arka plan resmi dosya yolunu buraya ekleyin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Eğer sayfa boyutu kadar kaplamasını istiyorsanız */
+    margin: 0; /* Body kenar boşluğunu kapatmak için */
+}

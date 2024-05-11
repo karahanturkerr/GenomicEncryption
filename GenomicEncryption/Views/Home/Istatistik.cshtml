@@ -3,6 +3,13 @@
     ViewBag.Title = "Istatistik";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genomic Encryption - @ViewBag.Title</title>
+    @Styles.Render("~/CSS/About.css")
+</head>
 <row>
     <h2>Algoritmalar Arası Karşılaştırma</h2>
 </row>
@@ -74,6 +81,11 @@
                             label: 'TripleDES Algoritması Şifreleme Hızı(μs)',
                             data: response.TripleDESTrueCounts,
                             borderWidth: 4
+                        },
+                        {
+                            label: 'Twofish Algoritması Şifreleme Hızı(μs)',
+                            data: response.TwofishTrueCounts,
+                            borderWidth: 4
                         }]
                     },
                     options: {
@@ -102,6 +114,11 @@
                         {
                             label: 'TripleDES Algoritması Çözme Hızı(μs)',
                             data: response.TripleDESFalseCounts,
+                            borderWidth: 4
+                        },
+                        {
+                            label: 'Twofish Algoritması Çözme Hızı(μs)',
+                            data: response.TwofishFalseCounts,
                             borderWidth: 4
                         }]
                     },

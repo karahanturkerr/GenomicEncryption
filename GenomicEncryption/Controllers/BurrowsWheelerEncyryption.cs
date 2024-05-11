@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using System;
 using System.IO;
-using System.Text;
 using GenomicEncryption.Models;
 using System.Diagnostics;
 

@@ -19,6 +19,10 @@ namespace GenomicEncryption.Models.ViewModels
 
         public List<double> TripleDESFalseCounts { get; set; }
 
+        public List<double> TwofishTrueCounts { get; set; }
+
+        public List<double> TwofishFalseCounts { get; set; }
+
 
     }
 }

@@ -66,6 +66,16 @@ namespace GenomicEncryption.Controllers
             return View(degerler);
 
         }
+        public ActionResult TwofishSifreleme()
+        {
+            var degerler = db.GenomicCodes.ToList();
+            return View(degerler);
+
+        }
+        public ActionResult Team()
+        {
+            return View();
+        }
 
 
         public ActionResult VeriTabaniGoruntule()
@@ -97,6 +107,12 @@ namespace GenomicEncryption.Controllers
         public ActionResult Istatistik()
         {
             var degerler = db.GenomicCodesTimes.ToList();
+            return View(degerler);
+        }
+
+        public ActionResult VeriEsleme()
+        {
+            var degerler = db.EncryptedData.ToList();
             return View(degerler);
         }
 

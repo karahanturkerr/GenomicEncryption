@@ -18,5 +18,6 @@ namespace GenomicEncryption.Models.Classes
         public DbSet<Users> Users { get; set; }
         public DbSet<Messages> Messages { get; set; }
         public DbSet<GenomicCodesTimes> GenomicCodesTimes { get; set; }
+        public DbSet<EncryptedData> EncryptedData { get; set; }
     }
 }

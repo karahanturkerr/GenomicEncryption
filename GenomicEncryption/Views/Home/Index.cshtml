@@ -29,18 +29,31 @@
         }
 
         header {
+            font-size: 200px;
             background-color: transparent;
             color: white;
             padding: 10px;
             text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
             header h1 {
+                
                 font-family: 'Century Schoolbook', Arial;
-                font-size: 70px; /* Yazı boyutunu artırmak için */
+                font-size: 100px; /* Yazı boyutunu artırmak için */
                 margin-bottom: 0; /* Yazı altındaki boşluğu kapatmak için */
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
+        h1 {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            font-size: 100px;
+        }
 
         .main-image img {
             max-width: 100%;
@@ -99,9 +112,6 @@
         <a href="@Url.Action("VeriEsleme")" class="btn btn-primary">Şifrelenmiş Veriler Arası Benzerlik Oranı Hesapla</a>
     </div>*@
 
-    <footer>
-        <span>UGenEncrypt</span>
-    </footer>
 </body>
 
 </html>

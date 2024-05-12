@@ -4,8 +4,36 @@
     ViewBag.Title = "BurrowsWheelerSifreleme";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
 
-<h2>Burrow Wheeler Sifreleme Algoritması</h2>
+    h1 {
+        text-align: center;
+        color: black;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+        font-size: 60px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 10px;
+        width: 105%;
+        margin-bottom: 20px; /* Alt boşluk */
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+</style>
+<h1>Burrows Wheeler Şifreleme Algoritması</h1>
+
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -53,9 +81,14 @@
             <div class="row">
                 <div class="col-8">
                     <label for="cozulen">Çözmek istediğiniz Kodu giriniz</label>
-                    <input class="form-control" id="txtCozulen" type="text" name="cozulen" />
-
-
+                    <div class="input-group">
+                        <input class="form-control" id="txtCozulen" type="text" name="cozulen" />
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" onclick="yapistir()">
+                                Yapıştır
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -69,23 +102,16 @@
                     <input class="form-control" id="txtSolved" type="text" name="solved" disabled />
                 </div>
                 <div class="col">
-                    <label for="encryptionTime">Şifrelenme Süresi (μs) :</label>
+                    <label for="encryptionTime">Çözülme Süresi (μs) :</label>
                     <input class="form-control" id="txtDecryptionTime" type="text" name="decryptionTime" disabled />
                 </div>
             </div>
         </div>
     </div>
-
+    <br />
+    <a href="/Home/Index/" class="btn btn-danger">GERİ</a>
+    <a href="/Home/VeriTabaniGoruntule" class="btn btn-danger">Genetik Kodları Görüntüle</a>
 </div>
-
-
-
-
-<br />
-<a href="/Home/Index/" class="btn btn-danger">GERİ</a>
-<a href="/Home/VeriTabaniGoruntule" class="btn btn-danger">Genetik Kodları Görüntüle</a>
-
-
 
 
 @section scripts{
@@ -163,7 +189,7 @@
                     console.log(response);
                 });
             })
-            
+
         }
         function kopyala() {
             var txtEncrypted = document.getElementById("txtEncrypted");
@@ -179,6 +205,14 @@
 
             // Kopyalanan veri hakkında bir bildirim göster
             alert("Şifrelenmiş veri kopyalandı!");
+        }
+
+        function yapistir() {
+            navigator.clipboard.readText().then(text => {
+                document.getElementById('txtCozulen').value = text;
+            }).catch(err => {
+                console.error('Yapıştırma işlemi başarısız oldu: ', err);
+            });
         }
     </script>
 

@@ -12,6 +12,8 @@
     @Styles.Render("~/CSS/VerisEsleme.css")
 </head>
 
+
+
 <style>
     .buton_container {
         display: flex;
@@ -29,19 +31,46 @@
         justify-content: center;
         align-items: center;
         font-size: 40px;
+        text-align: center;
+        color: black;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+    }
+    label {
+        font-weight: bold;
+    }
+    span {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-weight: bold;
     }
 
     #benzerlikSonucu {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 30px;
+        font-size: 40px;
     }
 
     #buton_hesapla {
         font-size: 30px;
     }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 10px;
+        margin-bottom: 20px; /* Alt boşluk */
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    h3 {
+        text-align: center;
+        color: black;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+    }
 </style>
+
 <div class="row">
     <div class="col">
         <div class="card">

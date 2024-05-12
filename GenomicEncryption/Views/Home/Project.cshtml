@@ -9,6 +9,10 @@
         margin-bottom: 20px;
     }
 
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
     .card-header {
         background-color: #f8f9fa;
     }
@@ -28,6 +32,12 @@
             font-size: 16px;
             line-height: 1.6;
         }
+
+    button {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-weight: bold;
+        font-size: 30px;
+    }
 </style>
 
 <!DOCTYPE html>
@@ -45,6 +55,7 @@
 
     <div id="accordion">
         <div class="card">
+
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -65,74 +76,74 @@
                 </div>
             </div>
         </div>
+
         <div class="card">
 
-            <div class="card">
-
-                <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Burrows Wheeler Algoritması
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body">
-                        <img src="~/IMAGE/burrows.png" width="850px" height="400px" alt="Description of the image">
-                        <p>
-                            <br />
-                            Burrows-Wheeler dönüşümü (BWT), veri sıkıştırma ve dizilim analizi için kullanılan bir tekniktir.
-                            Temel olarak, metin bloklarını döndürüp sıralayarak tekrarlanan karakter dizilerini art arda getirir.
-                            BWT, Lempel-Ziv-Welch (LZW) ve Move-To-Front (MTF) gibi sıkıştırma algoritmalarıyla birlikte sıkça kullanılır.
-                        </p>
-                    </div>
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Burrows Wheeler Algoritması
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <img src="~/IMAGE/burrows.png" width="850px" height="400px" alt="Description of the image">
+                    <p>
+                        <br />
+                        Burrows-Wheeler dönüşümü (BWT), veri sıkıştırma ve dizilim analizi için kullanılan bir tekniktir.
+                        Temel olarak, metin bloklarını döndürüp sıralayarak tekrarlanan karakter dizilerini art arda getirir.
+                        BWT, Lempel-Ziv-Welch (LZW) ve Move-To-Front (MTF) gibi sıkıştırma algoritmalarıyla birlikte sıkça kullanılır.
+                    </p>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            ThreeDES Algoritması
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                    <div class="card-body">
-                        <img src="~/IMAGE/3des.jpg" width="850px" height="400px" alt="Description of the image">
-                        <p>
-                            <br />
-                            Triple DES (3DES), DES'in güvenlik eksikliklerini gidermek için geliştirilmiş bir simetrik blok şifreleme algoritmasıdır.
-                            3DES, üç aşamalı bir şifreleme işlemi kullanarak veriyi şifreler ve her aşamada farklı bir anahtar kullanır.
-                            DES'in yerini alsa da, artık AES gibi daha modern ve güvenli algoritmalar tercih edilmektedir.
-                        </p>
-                    </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        ThreeDES Algoritması
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <img src="~/IMAGE/3des.jpg" width="850px" height="400px" alt="Description of the image">
+                    <p>
+                        <br />
+                        Triple DES (3DES), DES'in güvenlik eksikliklerini gidermek için geliştirilmiş bir simetrik blok şifreleme algoritmasıdır.
+                        3DES, üç aşamalı bir şifreleme işlemi kullanarak veriyi şifreler ve her aşamada farklı bir anahtar kullanır.
+                        DES'in yerini alsa da, artık AES gibi daha modern ve güvenli algoritmalar tercih edilmektedir.
+                    </p>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            TwoFish Algoritması
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                    <div class="card-body">
-                        <img src="~/IMAGE/twofish.png" width="850px" height="400px" alt="Description of the image">
-                        <p>
-                            <br />
-                            Twofish, Bruce Schneier tarafından tasarlanan bir simetrik blok şifreleme algoritmasıdır.
-                            AES'in seçilmesinden önce AES adayı olarak kabul edilmiştir.
-                            Twofish, 128, 192 veya 256 bitlik anahtar uzunluklarıyla kullanılabilir ve blok boyutu 128 bittir.
-                            Twofish, karmaşık matematiksel işlemler ve bir dizi alt anahtar kullanır.
-                        </p>
-                    </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        TwoFish Algoritması
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                    <img src="~/IMAGE/twofish.png" width="850px" height="400px" alt="Description of the image">
+                    <p>
+                        <br />
+                        Twofish, Bruce Schneier tarafından tasarlanan bir simetrik blok şifreleme algoritmasıdır.
+                        AES'in seçilmesinden önce AES adayı olarak kabul edilmiştir.
+                        Twofish, 128, 192 veya 256 bitlik anahtar uzunluklarıyla kullanılabilir ve blok boyutu 128 bittir.
+                        Twofish, karmaşık matematiksel işlemler ve bir dizi alt anahtar kullanır.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 </body>

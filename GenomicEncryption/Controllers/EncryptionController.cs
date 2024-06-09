@@ -101,6 +101,23 @@ namespace GenomicEncryption.Controllers
             return Json(new { success = true });
         }
 
+        [HttpPost]
+        public ActionResult DataSave(string AD, string DEGER)
+        {
+
+
+            var genomicCodes = new GenomicCodes
+            {
+                AD = AD,
+                DEGER = DEGER,
+            };
+
+            db.GenomicCodes.Add(genomicCodes);
+            db.SaveChanges();
+
+            return Json(new { success = true });
+        }
+
         [HttpGet]
         public JsonResult GetExistingData()
         {
@@ -132,10 +149,10 @@ namespace GenomicEncryption.Controllers
             var newList = list
                   .Where(gc => gc.AlgorithmName == functionName && gc.IsEncrypt == isEncrypt)
                   .OrderByDescending(o => o.CreatedDate)
-                  .Take(10)
+                  .Take(20)
                   .Select(gc => gc.Time)
                   .ToList();
-            while (newList.Count < 10)
+            while (newList.Count < 20)
             {
                 newList.Add(0);
 
@@ -184,11 +201,15 @@ namespace GenomicEncryption.Controllers
         [HttpPost]
         public JsonResult CalculateSimilarity(string text1, string text2)
         {
-            int eslesenHarfSayisi = HarfEslesmeSay(text1, text2);
-            int maxHarfSayisi = Math.Max(text1.Length, text2.Length);
-            double benzerlikOrani = (double)eslesenHarfSayisi / maxHarfSayisi * 100;
+            var (score, align1, align2, percentage) = SmithWatermanHelper.CalculateSmithWaterman(text1, text2);
 
-            return Json(new { similarityPercentage = benzerlikOrani });
+            return Json(new
+            {
+                score = score,
+                alignment1 = align1,
+                alignment2 = align2,
+                similarityPercentage = percentage
+            });
         }
 
         private int HarfEslesmeSay(string metin1, string metin2)

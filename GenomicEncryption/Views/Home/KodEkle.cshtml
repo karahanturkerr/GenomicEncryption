@@ -25,7 +25,7 @@
         transition: 0.3s;
         border-radius: 10px;
         width: 105%;
-        margin-bottom: 20px; /* Alt boşluk */
+        margin-bottom: 20px;
     }
 
         .card:hover {
@@ -33,33 +33,64 @@
         }
 </style>
 <h1>Veri Ekleme</h1>
+<br />
 <div class="card">
     <div class="card-body">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <label for="deger">Genomik Kod</label>
-                    @Html.TextBoxFor(m => m.DEGER, new { @class = "form-control", @name = "deger", @required = true })
+        <div class="row">
+            <div class="col-8">
+                <label for="cozulen">Genomik Kod</label>
+                <div class="input-group">
+                    <input class="form-control" id="txtDEGER" type="text" name="cozulen" />
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="name">Genomik Kodları Temsil Eden Ad</label>
-                    @Html.TextBoxFor(m => m.AD, new { @class = "form-control", @name = "name", @required = true })
-                </div>
-            </div>
 
-            <div class="row mt-2">
-                <div class="col-3">
-                    <button class="btn btn-primary w-50"> Ekle</button>
-                </div>
             </div>
         </div>
-    </div>
-    <br />
+        <div class="row">
+            <div class="col-8">
+                <label for="cozulen">Genomik Kodu Temsil Eden Ad</label>
+                <div class="input-group">
+                    <input class="form-control" id="txtAD" type="text" name="cozulen" />
+                </div>
 
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-4 d-flex justify-content-end flex-column">
+                <button type="button" class="btn btn-primary" onclick="ekle()">
+                    Ekle
+                </button>
+            </div>
+        </div>
+
+    </div>
 </div>
+
 <a href="/Home/Index/" class="btn btn-danger">GERİ</a>
 <a href="/Home/VeriTabaniGoruntule" class="btn btn-danger">Genetik Kodları Görüntüle</a>
+
+@section scripts{
+    <script>
+
+
+
+        function ekle() {
+
+            var mdl_Data = {
+                AD: $('#txtAD').val(), 
+                DEGER: $('#txtDEGER').val(),
+            };
+            $.post("/Encryption/DataSave", mdl_Data, function (res) {
+                $('#txtAD').val('');
+                $('#txtDEGER').val('');
+
+            });
+            alert("Veri Başarıyla Eklendi");
+
+        }
+
+    </script>
+
+}
 
 

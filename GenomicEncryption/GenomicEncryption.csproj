@@ -133,6 +133,7 @@
     <Content Include="CSS\login.css" />
     <Content Include="CSS\loginandregister.css" />
     <Content Include="CSS\project2.css" />
+    <Compile Include="Controllers\SmithWatermanHelper.cs" />
     <Compile Include="Controllers\TripleDESEncryption.cs" />
     <Compile Include="Controllers\TwofishEncryption.cs" />
     <Compile Include="Controllers\UserController.cs" />
